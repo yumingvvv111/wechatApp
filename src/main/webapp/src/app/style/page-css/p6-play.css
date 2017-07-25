@@ -1,0 +1,40 @@
+.product-infor {
+    background: #FFFFFF;
+    position: relative;
+    margin-top: 80px;
+    padding-bottom: 20px;
+     height: calc(100% - 645px);
+    min-height: 245px;
+}
+.product-infor .product-img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+.product-infor .product-img img {
+    width: 100px;
+    height: 100px;
+}
+.product-infor .product-hd {
+    padding-top: 70px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.product-infor .product-hd h2 {
+    color: #009CFF;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: normal;
+}
+@media only screen and  (max-width: 360px) {
+   .product-infor .product-hd h2 {
+    font-size: 15px;
+   }
+}
+.product-infor .product-hd p{ padding: 0 15px;}
+.product-infor .product-bd{ text-align: center; height: 36px;}
+.product-infor .product-bd .shop-car{ width: 36px; height: 36px; display: inline-block; background: #009CFF; border-radius: 50%; margin-right: 10px; padding: 4px 0 0 4px; vertical-align: middle;}
+.product-infor .product-bd .shop-car img{ width: 28px;  }
+.product-infor .product-bd a{ color: #009CFF; font-size: 18px; font-weight: 500; display: inline-block; line-height: 36px;}

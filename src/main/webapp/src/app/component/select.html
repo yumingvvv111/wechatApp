@@ -1,0 +1,14 @@
+<div class="component-select" data-bind="$root.options">
+  <div class="weui-cells weui-cells_checkbox" data-bind="foreach:$root.options">
+    <div class="weui-cell weui-check__label" data-bind="click:$root.onSelected">
+      <div class="weui-cell__hd">
+        <input type="checkbox" class="weui-check" data-bind="value"
+               data-attr="{id:'yySelect'+$index,checked:checked?'checked':'false',value:value}">
+        <i class="weui-icon-checked"></i>
+      </div>
+      <div class="weui-cell__bd">
+        <p data-bind="text:name"></p>
+      </div>
+    </div>
+  </div>
+</div>

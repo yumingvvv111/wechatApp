@@ -1,0 +1,75 @@
+
+        <!--<div class="weui-toptips">空气质量轻微、中度污染</div>-->
+        <div class="page air-good orange-bgcolor">
+            <input type="hidden" name="title" value="过敏史"/>
+            <div class="top-title clearfix">
+                <a href="javascript:;" class="home fl" id="showIOSDialog1">客厅</a>
+                <span class="link-info fr">3分钟前</span>
+            </div>
+            <!--指示盘-->
+            <div class="dial-box">
+                <div class="pie-cricle">
+                    <div class="out-cricle"></div>
+                    <div class="inner-cricle inner-cricle-orange">
+                        <img src="app/images/background_3.png">
+                    </div>
+                </div>
+                <!--盒子分数-->
+                <div class="mark-box">
+                    <div class="company">ug/m³</div>
+                    <div class="texting-big-num"><span class="big-number">358</span></div>
+                    <div class="texting-num">PM2.5<span class="mlr10">|</span><span class="small-number">轻度污染</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dial-box-name">
+                PM10浓度：
+                <small><span>38</span>ug/m³</small>
+            </div>
+            <div class="echartsbox">
+                <!--第一个柱状图-->
+                <div id="first-echart-box" class="first-echart-box"></div>
+                <!--第二个柱状图-->
+                <div id="next-echart-box" class="next-echart-box"></div>
+            </div>
+            <div class="foot-tabbar">
+                <div class="weui-tabbar weui-tabbar-link">
+                    <a href="javascript:;" class="weui-tabbar__item">
+                        <img src="app/images/Shutdown.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">关机</p>
+                    </a>
+                    <a href="javascript:;" class="weui-tabbar__item">
+                        <img src="app/images/Always.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">设备常亮</p>
+                    </a>
+                    <a href="javascript:;" class="weui-tabbar__item">
+                        <img src="app/images/pm10.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">PM2.5</p>
+                    </a>
+                    <a href="javascript:;" class="weui-tabbar__item">
+                        <img src="app/images/share.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">分享</p>
+                    </a>
+                </div>
+            </div>
+            <div class="none-div"></div>
+            <!--弹出窗dialogs-->
+            <div id="dialogs">
+                <div class="js_dialog" id="iosDialog1" style="display: none;">
+                    <div class="weui-mask"></div>
+                    <div class="weui-dialog">
+                        <div class="weui-dialog__hd"><strong class="weui-dialog__title">请给设备命名</strong></div>
+                        <div class="weui-dialog__bd">
+                            <input class="weui-input input-text" type="text" placeholder="请输入设备名称">
+                        </div>
+                        <div class="weui-dialog__ft">
+                            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+                            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="exampleApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="ico/favicon.ico">
+
+        <title>REST EXAMPLE APP</title>
+        <link rel="stylesheet" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"/>  
+        <link rel="stylesheet" href="webjars/bootstrap-material-design/0.3.0/css/material.min.css"/>  
+        <link rel="stylesheet" href="webjars/bootstrap-material-design/0.3.0/css/ripples.min.css"/> 
+        <link rel="stylesheet" href="webjars/bootstrap-material-design/0.3.0/css/roboto.min.css"/> 
+        <link rel="stylesheet" href="css/main.css" />
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+                      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                    <![endif]-->
+    </head>
+
+    <body ng-controller="MainController">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/home"><msg key="appName"></msg></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" ng-show="authenticated">
+                        <li ng-class="activeWhen(path() == '/posts')"><a
+                                href="#/posts"><msg key="posts"></msg></a></li>
+                        <li ng-class="activeWhen(path() == '/posts/new')"><a
+                                href="#/posts/new"><msg key="newPost"></msg></a></li>
+                    </ul>
+                    <span class="navbar-right" ng-if="!authenticated">
+                        <a class="btn btn-success navbar-btn" href="#/login"><msg key="login"></msg></a>
+                    </span>
+                    <span class="navbar-right" ng-if="!!authenticated">
+                        <span class="navbar-text"> 
+                            Welcome back {{name}}, 
+                        </span> 
+                        <a class="btn btn-default navbar-btn" href='javascript:void(0);' ng-click="logout()"> <msg key="logout"></msg></a>
+                    </span> 
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+        <div class="container page">
+            <div ng-class="'alert alert-' + message().type"
+                 ng-show="message().show">
+                <button type="button" class="close" ng-click="message().show = false">×</button>
+                <msg key-expr="message().text"></msg>
+            </div>
+            <ng-view></ng-view>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-default"
+                               ng-class="(language() == 'zh_CN') ? 'btn-primary' : ''"
+                               ng-click="setLanguage('zh_CN')">简体中文</a> <a
+                               class="btn btn-default"
+                               ng-class="(language() == 'en') ? 'btn-primary' : ''"
+                               ng-click="setLanguage('en')">English</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="center-block">&copy;2014 sstm888Labs.com, all
+                            rights reserved.</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="webjars/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="webjars/angularjs/1.3.14/angular.min.js"></script>
+        <script type="text/javascript" src="webjars/angularjs/1.3.14/angular-route.min.js"></script>
+        <script type="text/javascript" src="webjars/angularjs/1.3.14/angular-resource.min.js"></script>
+        <script type="text/javascript" src="webjars/angularjs/1.3.14/angular-cookies.min.js"></script>
+        <script type="text/javascript" src="webjars/angularjs/1.3.14/angular-messages.min.js"></script>
+        <script type="text/javascript" src="webjars/angularjs/1.3.14/angular-animate.min.js"></script>
+        <script type="text/javascript" src="webjars/angularjs/1.3.14/angular-aria.min.js"></script>
+        <script type="text/javascript" src="webjars/angularjs/1.3.14/angular-touch.min.js"></script>
+        <script type="text/javascript" src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="webjars/angular-ui-bootstrap/0.12.1-1/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="webjars/bootstrap-material-design/0.3.0/js/material.min.js"></script>  
+        <script type="text/javascript" src="webjars/bootstrap-material-design/0.3.0/js/ripples.min.js"></script> 
+        <script type="text/javascript" src="js/angular-bootstrap.js"></script>
+        <script type="text/javascript" src="js/jquery.i18n.properties-min-1.0.9.js"></script>
+        <script type="text/javascript" src="js/controller.js"></script>
+        <script type="text/javascript" src="js/filter.js"></script>
+        <script type="text/javascript" src="js/i18n.js"></script>
+        <script type="text/javascript" src="js/base64.js"></script>
+        <script type="text/javascript" src="js/init.js"></script>
+        <script>
+                                           $.material.init();
+        </script>
+    </body>
+
+</html>
+

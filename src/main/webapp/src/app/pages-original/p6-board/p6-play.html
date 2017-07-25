@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>空气猫P6型雾霾检测仪</title>
+    <link rel="stylesheet" href="../../style/weui.min.css">
+    <link rel="stylesheet" href="../../style/p2-style.css">
+    <link rel="stylesheet" href="../../style/page-css/p6-data.css">
+    <link rel="stylesheet" href="../../style/page-css/p6-play.css">
+</head>
+
+<body>
+
+<div class="container" id="container">
+    <section class="page-p6-data">
+        <!--html segment begin-->
+        <!--<div class="weui-toptips">空气猫P6型雾霾检测仪</div>-->
+        <div class="page p6-data black-bgcolor">
+            <input type="hidden" name="title" value="空气猫P6型雾霾检测仪"/>
+            <div class="top-title clearfix">
+                <a href="javascript:;" class="home fl" id="equipmentName" data-bind="{text:$root.equipmentName,click:$root.onClickEquipmentName}"></a>
+                <span class="link-info fr">3分钟前</span>
+            </div>
+            <!--6个指示数据-->
+            <div class="dial-listbox">
+                <!--甲醛数据环-->
+                <div class="dial-box dial-box2">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">mg/m³</div>
+                        <div class="texting-big-num"><span class="big-number">0.05</span></div>
+                        <div class="texting-num">甲醛<span class="mlr5">|</span><span class="small-number">优</span></div>
+                    </div>
+                </div>
+                <!--化学污染物TVOC数据环-->
+                <div class="dial-box dial-box3">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">mg/m³</div>
+                        <div class="texting-big-num"><span class="big-number">--</span></div>
+                        <div class="texting-num">化学污染物<span class="mlr5">|</span><span class="small-number">--</span>
+                        </div>
+                    </div>
+                </div>
+                <!--PM2.5数据环-->
+                <div class="dial-box dial-box1">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">&mu;g/m³</div>
+                        <div class="texting-big-num"><span class="big-number">189</span></div>
+                        <div class="texting-num">PM2.5<span class="mlr5">|</span><span class="small-number">严重</span>
+                        </div>
+                    </div>
+                </div>
+                <!--污染指数数据环-->
+                <div class="dial-box dial-box4">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company"></div>
+                        <div class="texting-big-num"><span class="big-number">430</span></div>
+                        <div class="texting-num">污染指数</div>
+                    </div>
+                </div>
+                <!--温度数据环-->
+                <div class="dial-box dial-box5 dial-box-blue">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">℃</div>
+                        <div class="texting-big-num"><span class="big-number">27</span></div>
+                        <div class="texting-num">温度</div>
+                    </div>
+                </div>
+                <!--湿度数据环-->
+                <div class="dial-box dial-box6 dial-box-blue">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">%</div>
+                        <div class="texting-big-num"><span class="big-number">56</span></div>
+                        <div class="texting-num">湿度</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="product-infor">
+                <div class="product-img">
+                    <img src="app/images/p6-image.png">
+                </div>
+                <div class="product-hd">
+                    <h2>空气猫P6plus型便携式空气质量动态检测仪</h2>
+                    <p>清华大学控股企业/激光传感器、电化学传感器、红外传感器、电子传感器/PM2.5、甲醛、二氧化碳、化学污染物、温度、湿度</p>
+                </div>
+                <div class="product-bd">
+                    <span class="shop-car"><img src="app/images/shop-car.png"> </span><a href="https://detail.tmall.com/item.htm?spm=a230r.1.14.6.ebb2eb2Lem6Va&id=533985656878&cm_id=140105335569ed55e27b&abbucket=4" target="_blank">马上购买</a>
+                </div>
+            </div>
+        </div>
+        <!--html segment end-->    </section>
+</div>
+
+</body>
+
+<script src="../../js/lib/jquery-2.1.4.js"></script>
+<!--<script>
+		$(function() {
+			$('#showDialog1').click(function() {
+				$('#iosDialog1').fadeIn(200);
+			});
+
+			$('#dialogs').on('click', '.weui-dialog__btn', function() {
+				$(this).parents('.js_dialog').fadeOut(200);
+			});
+		});
+	</script>-->
+<!--第一个PM2.5环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box1').each(function (index, el) {
+            //最小值
+            var minA = 0;
+            //最大值
+            var maxA = 500;
+            //一个数字平均旋转度数
+            var meanA = 180 / (maxA - minA);
+            //具体数字
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+            //判断背景环颜色
+            if (isNaN(originalNum)) {
+                $(this).addClass('dial-box-white');
+            } else {
+                if (originalNum <= 75) {
+                    $(this).addClass('dial-box-blue');
+                } else if (75 < originalNum && originalNum <= 150) {
+                    $(this).addClass('dial-box-yellow');
+                } else {
+                    $(this).addClass('dial-box-red');
+                }
+                ;
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第二个甲醛环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box2').each(function (index, el) {
+            var minA = 0;
+            var maxA = 3;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+
+            //判断背景环颜色
+            if (isNaN(originalNum)) {
+                $(this).addClass('dial-box-white');
+            } else {
+                if (originalNum < 0.10) {
+                    $(this).addClass('dial-box-blue');
+                } else if (0.10 <= originalNum && originalNum <= 0.19) {
+                    $(this).addClass('dial-box-yellow');
+                } else {
+                    $(this).addClass('dial-box-red');
+                }
+                ;
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第三个化学污染物环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box3').each(function (index, el) {
+            var minA = 0;
+            var maxA = 10;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+            //判断背景环颜色
+            if (isNaN(originalNum)) {
+                $(this).addClass('dial-box-white');
+            } else {
+                if (originalNum < 0.60) {
+                    $(this).addClass('dial-box-blue');
+                } else if (0.60 <= originalNum && originalNum <= 2.00) {
+                    $(this).addClass('dial-box-yellow');
+                } else {
+                    $(this).addClass('dial-box-red');
+                }
+                ;
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第四个二氧化碳环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box4').each(function (index, el) {
+            var minA = 0;
+            var maxA = 5000;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+
+            //判断背景环颜色
+            if (isNaN(originalNum)) {
+                $(this).addClass('dial-box-white');
+            } else {
+                if (originalNum <= 1000) {
+                    $(this).addClass('dial-box-blue');
+                } else if (1000 < originalNum && originalNum <= 2000) {
+                    $(this).addClass('dial-box-yellow');
+                } else {
+                    $(this).addClass('dial-box-red');
+                }
+                ;
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第五个温度环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box5').each(function (index, el) {
+            var minA = -20;
+            var maxA = 50;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第六个温、湿度环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box6').each(function (index, el) {
+            var minA = 0;
+            var maxA = 100;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+        });
+    });
+
+</script>
+</html>

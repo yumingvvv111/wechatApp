@@ -1,0 +1,2 @@
+webpackJsonp([7],{0:function(a,i,e){var t=e(11),s=e(3);s.initPage(t,"invalid-page")},11:function(a,i,e){a.exports=' <div class="page air-invalid-page"> <input type=hidden name=title value=失效 /> <div class=weui-msg> <div class=weui-msg__icon-area><i class="weui-icon-warn weui-icon_msg"></i></div> <div class=weui-msg__text-area> <h2 class=weui-msg__title>抱歉，该页面已失效</h2> </div> </div> </div> '}});
+//# sourceMappingURL=invalid-page.js.map

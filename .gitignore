@@ -1,0 +1,5 @@
+.idea
+.svn
+*.log
+*.log.1
+node_modules

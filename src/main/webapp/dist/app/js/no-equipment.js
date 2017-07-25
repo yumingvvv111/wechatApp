@@ -1,0 +1,2 @@
+webpackJsonp([8],{0:function(a,i,e){var t=e(12),s=e(3);s.initPage(t,"no-equipment")},12:function(a,i,e){a.exports=' <div class="page no-equipment"> <input type=hidden name=title value=过敏史 /> <div class=no-equipment-wrapper> <img src=app/images/no-equipment.jpg class=img-parent> <p class=text-center>还没有绑定设备</p> </div> <div class=add-equipment-btn> <a href=javascript:; class="weui-btn weui-btn_primary">+添加设备</a> </div> </div> '}});
+//# sourceMappingURL=no-equipment.js.map

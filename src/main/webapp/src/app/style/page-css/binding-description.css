@@ -1,0 +1,40 @@
+/*设备绑定说明*/
+.binding-content{ padding:20px 15px;}
+.binding-content .binding-explain{ margin-bottom: 20px; font-size: 14px;}
+.binding-content .binding-step{ margin-left: 1rem; border-left:1px solid #CCCCCC;}
+.binding-content .binding-step li{
+	position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align:  flex-start;
+    -webkit-align-items:  flex-start;
+    align-items: flex-start;
+}
+.binding-content .binding-step li{ margin-left: -11px; margin-bottom: 40px;}
+.binding-content .binding-step li:first-child{ margin-bottom: 25px;}
+.binding-content .binding-step li .step-number{ 
+	font-size: 14px; 
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 50%; 
+	color: #FFFFFF; 
+	background: #1AAD19;
+	margin-right: 10px;
+}
+.binding-content .binding-step li .step-word{
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+.binding-content .binding-step li .step-word h3{ font-size: 18px; font-weight: normal; line-height: 20px;}
+.binding-content .binding-step li .step-word p{ font-size: 14px; margin-top: 5px;}
+.page .add-equipment-btn {
+    position: fixed;
+    bottom: 50px;
+    left: 15px;
+    z-index: 99;
+    width: calc(100% - 30px);
+}

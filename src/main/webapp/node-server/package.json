@@ -1,0 +1,20 @@
+{
+  "name": "MyNodeServer",
+  "version": "1.0.0",
+  "description": "本地调试用的, 这样UI的问题可以本地调试, 不用让服务端的同事再另起服务",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zhangjun",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "mongojs": "^2.4.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

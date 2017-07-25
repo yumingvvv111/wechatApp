@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>设备绑定申请</title>
+    <link rel="stylesheet" href="../../style/weui.min.css">
+    <link rel="stylesheet" href="../../style/p2-style.css">
+    <link rel="stylesheet" href="../../style/page-css/binding-apply.css">
+</head>
+<body>
+
+
+<div class="container" id="container">
+    <section class="page-binding-apply">
+        <!--html segment begin-->        <!--<div class="weui-toptips">设备绑定申请</div>-->
+        <div class="page binding-apply">
+            <input type="hidden" name="title" value="设备绑定申请"/>
+            <div class="title">
+                <span class="apply-name" data-bind="text:$root.paramFromURL.nickName">一朵鲜花</span>申请绑定
+            </div>
+            <div class="apply-equipment">
+                <div class="weui-cell">
+                    <div class="weui-cell_hd cell_hd-pic">
+                        <img src="../../images/product01.jpg">
+                    </div>
+                    <div class="weui-cell_bd">
+                        <p class="product-name" data-bind="text:$root.paramFromURL.product_name">空气猫PM2.5检测仪</p>
+                        <p class="product-position" data-bind="text:$root.paramFromURL.roomName">客人房间</p>
+                        <p class="product-mac" data-bind="text:$root.paramFromURL.mac">ed:ef:ab:ab:ab:ab</p>
+                    </div>
+                </div>
+            </div>
+            <div class="add-equipment-btn">
+                <a href="javascript:;" class="weui-btn weui-btn_primary" data-bind="click:$root.onClickAgree">同意</a>
+                <a href="javascript:;" class="weui-btn weui-btn_warn" data-bind="click:$root.onClickDisagree">拒绝</a>
+            </div>
+        </div>
+        <!--html segment end-->
+    </section>
+</div>
+</body>
+</html>

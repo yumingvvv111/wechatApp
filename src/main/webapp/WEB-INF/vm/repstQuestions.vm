@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>$!{result.get("questionnaireName")}</title>
+  <style>
+    body { margin: 0; font-family: "微软雅黑", "Microsoft YaHei"; font-size: 14px;}
+    table { width: 90%; border-spacing: 0; border-left: 0px solid #FFFFFF; border-top: 0px solid #FFFFFF;}
+    table td { border-right: 0px solid #FFFFFF; border-bottom: 0px solid #FFFFFF; padding: 5px 10px;}
+    h4 { font-size: 14px;}
+  </style>
+</head>
+
+<body>
+  <h1 style="text-align:center;size: 60px;">$!{result.get("questionnaireName")}</h1>
+  <table align="center">
+    <tbody>
+      <tr>
+        <td colspan="4">
+        	#foreach( $questionCtgr in $!{result})
+        	<span >$!{questionCtgr.get("num")}.$!{questionCtgr.get("querstInto")}<br><span ><span style="color:white;">$!{questionCtgr.get("num")}.</span style="color:white;">$!{questionCtgr.get("answer")}<br>
+        	
+			#end
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

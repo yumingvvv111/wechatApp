@@ -1,0 +1,11 @@
+/*设备展示样式表*/
+/*分享展示页*/
+.product-box{ background: #FFFFFF; position: relative; margin-top: 80px; padding-bottom: 20px; height: calc(100% - 470px); min-height: 217px;}
+.product-box .product-img{ position: absolute; width:100px; height: 100px; top:-50px; left:calc(50% - 50px); }
+.product-box .product-img img{ width:100px; height: 100px;}
+.product-box .product-hd{ padding-top: 70px; text-align: center; margin-bottom: 15px;}
+.product-box .product-hd h2{ color: #1AAD19; margin-bottom: 10px;}
+.product-box .product-hd p{ padding: 0 15px;}
+.product-box .product-bd{ text-align: center; height: 32px;}
+.product-box .product-bd img{ width: 32px; height: 32px; display: inline-block; margin-right: 10px; vertical-align: middle;}
+.product-box .product-bd a{ color: #1AAD19; font-size: 16px; font-weight: 500; display: inline-block; line-height: 32px;}

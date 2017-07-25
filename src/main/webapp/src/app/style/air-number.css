@@ -1,0 +1,69 @@
+/*链接中断*/
+.container .top-title{ padding: 20px; height: 70px;}
+.top-title span,.top-title a{ display:block; color: #FFFFFF; font-size: 16px; line-height: 30px;}
+.top-title .home{background: rgba(0,0,0,0.2); padding:0 15px; border-radius: 15px; }
+.top-title .break-info{ padding-left: 35px; background: url(../images/link_off.png) no-repeat; background-size:30%;}
+.dial-box{ width: 280px; height: 280px; margin:0 auto; position: relative; color: #FFFFFF; text-align: center;
+background: url(../images/background5.png) no-repeat; background-size: 100%;}
+.pie-cricle{
+	 width:280px; 
+	 height:280px;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 clip:rect(0,auto,140px,auto);
+}
+.out-cricle{
+	 width:280px; 
+	 height:280px;
+	 background:#FFFFFF;
+	 border-radius: 50%;
+	 position: absolute;  
+	 top: 0;
+	 left: 0;
+	 clip:rect(140px,auto,auto,0);
+}
+.inner-cricle{
+	 width: 262px;
+	 height: 262px;
+	 border-radius: 50%;
+	 left: 9px;
+	 top: 9px;      
+	 position: absolute;	
+	clip:rect(0,auto,131px,auto); 
+}
+.inner-cricle-green{ background: #00dd73; }
+.inner-cricle-orange{ background: #ffa23b;}
+.inner-cricle-red{ background: #FF5A55;}
+.inner-cricle img{ width: 250px; margin:6px auto;}
+.dial-box .mark-box{z-index: 999; position: absolute; left: 0; top: 0; width: 280px;}
+.dial-box .mark-box .company{padding-top: 50px;}
+.dial-box .mark-box .texting-big-num .big-number{ font-size:100px; line-height: 1.1;}
+.dial-box .mark-box .texting-num{ font-size: 16px;}
+.dial-box-name{ color:#fff; text-align: center; font-size: 24px; margin: 5px 0 15px;}
+.echartsbox{ margin-bottom: 20px;}
+.first-echart-box,.next-echart-box{ width: 100%; height: 500px; padding:0 10px;}
+.foot-tabbar {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.weui-tabbar:before { border-top: 0;}
+.foot-tabbar .weui-tabbar{position: initial; border-radius: 8px;
+	-webkit-box-shadow: 0  5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0  5px 15px rgba(0,0,0,0.3);
+    }
+.foot-tabbar .weui-tabbar__icon{width: 27px; height: 24px;}
+.weui-tabbar-break .weui-tabbar__label{ color: #CCCCCC;}
+
+.none-div{ width:100%;height:65px;}
+/*空气检测为优*/
+.top-title .link-info{ padding-left: 35px; background: url(../images/link.png) no-repeat; background-size:30%;}
+.weui-tabbar-link .weui-tabbar__label{ color: #555555;}
+.weui-dialog .input-text{ padding:0 5px; border: 1px solid #CCCCCC; line-height: 32px; height: 32px;}
+
+

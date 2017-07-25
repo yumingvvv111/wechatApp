@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>空气猫P6型雾霾检测仪</title>
+    <link rel="stylesheet" href="../../style/weui.min.css">
+    <link rel="stylesheet" href="../../style/p2-style.css">
+    <link rel="stylesheet" href="../../style/page-css/p6-data.css">
+    <script src="../../js/lib/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="../../js/lib/echarts.min.js"></script>
+</head>
+
+<body>
+
+<div class="container" id="container">
+    <section class="page-p6-data">
+        <!--html segment begin-->
+        <!--<div class="weui-toptips">空气猫P6型雾霾检测仪</div>-->
+        <div class="page p6-data black-bgcolor">
+            <input type="hidden" name="title" value="空气猫P6型雾霾检测仪"/>
+            <div class="top-title clearfix">
+                <a href="javascript:;" class="home fl" id="equipmentName" data-bind="{text:$root.equipmentName,click:$root.onClickEquipmentName}">未定义</a>
+                <span class="link-info fr">3分钟前</span>
+            </div>
+            <!--6个指示数据-->
+            <div class="dial-listbox">
+                <!--甲醛数据环-->
+                <div class="dial-box dial-box2">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">mg/m³</div>
+                        <div class="texting-big-num"><span class="big-number">0.05</span></div>
+                        <div class="texting-num">甲醛<span class="mlr5">|</span><span class="small-number">优</span></div>
+                    </div>
+                </div>
+                <!--化学污染物TVOC数据环-->
+                <div class="dial-box dial-box3">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">mg/m³</div>
+                        <div class="texting-big-num"><span class="big-number">--</span></div>
+                        <div class="texting-num">化学污染物<span class="mlr5">|</span><span class="small-number">--</span>
+                        </div>
+                    </div>
+                </div>
+                <!--PM2.5数据环-->
+                <div class="dial-box dial-box1">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">&mu;g/m³</div>
+                        <div class="texting-big-num"><span class="big-number">189</span></div>
+                        <div class="texting-num">PM2.5<span class="mlr5">|</span><span class="small-number">严重</span>
+                        </div>
+                    </div>
+                </div>
+                <!--污染指数数据环-->
+                <div class="dial-box dial-box4">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company"></div>
+                        <div class="texting-big-num"><span class="big-number">430</span></div>
+                        <div class="texting-num">污染指数</div>
+                    </div>
+                </div>
+                <!--温度数据环-->
+                <div class="dial-box dial-box5 dial-box-blue">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">℃</div>
+                        <div class="texting-big-num"><span class="big-number">27</span></div>
+                        <div class="texting-num">温度</div>
+                    </div>
+                </div>
+                <!--湿度数据环-->
+                <div class="dial-box dial-box6 dial-box-blue">
+                    <div class="pie-cricle">
+                        <div class="out-cricle"></div>
+                        <div class="inner-cricle"></div>
+                    </div>
+                    <!--盒子分数-->
+                    <div class="mark-box">
+                        <div class="company">%</div>
+                        <div class="texting-big-num"><span class="big-number">56</span></div>
+                        <div class="texting-num">湿度</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!--四条提示信息-->
+            <div class="prompt-message">
+                <p class="good-message">甲醛国家标准为0.1mg/m³，您所处环境安全</p>
+                <p class="remind-message">您所处的环境化学污染物超标，请及时采取净化措施或通风换气</p>
+                <p class="Warning-message">您所处的环境PM2.5超标，请及时采取净化措施</p>
+                <p class="Warning-message">您所处的环境二氧化碳超标严重，请立刻通风换气</p>
+            </div>
+            <!--6个指示数据end-->
+            <div class="echartsbox">
+                <!--第一个柱状图甲醛-->
+                <div id="first-echart-box" class="first-echart-box"></div>
+                <!--第二个柱状图化学污染物-->
+                <div id="three-echart-box" class="three-echart-box"></div>
+                <!--第三个柱状图-->
+                <div id="five-echart-box" class="five-echart-box"></div>
+                <!--第四个柱状图-->
+                <div id="second-echart-box" class="second-echart-box"></div>
+                <!--第五个柱状图-->
+                <div id="six-echart-box" class="six-echart-box"></div>
+                <!--第六个柱状图-->
+                <div id="four-echart-box" class="four-echart-box"></div>
+            </div>
+            <div class="foot-tabbar">
+                <div class="weui-tabbar weui-tabbar-link">
+                    <a href="javascript:;" class="weui-tabbar__item">
+                        <img src="../../images/Shutdown.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">关机</p>
+                    </a>
+                    <a href="javascript:;" class="weui-tabbar__item">
+                        <img src="../../images/Always.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">设备常亮</p>
+                    </a>
+                    <a href="javascript:;" class="weui-tabbar__item" data-bind="click:$root.onClickShare">
+                        <img src="../../images/share.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">分享</p>
+                    </a>
+                </div>
+
+            </div>
+            <div class="none-div"></div>
+            <!--弹出窗dialogs-->
+            <div id="dialogs">
+                <div class="js_dialog" id="changeNameWrapper" style="display: none;">
+                    <div class="weui-mask"></div>
+                    <div class="weui-dialog">
+                        <div class="weui-dialog__hd"><strong class="weui-dialog__title">请给设备命名</strong></div>
+                        <div class="weui-dialog__bd">
+                            <input class="weui-input input-text" type="text" placeholder="请输入设备名称">
+                        </div>
+                        <div class="weui-dialog__ft">
+                            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" data-bind="click:$root.onClickPrimary">确定</a>
+                            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" data-bind="click:$root.onClickCancel">取消</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--弹出窗end-->
+            <div id="shareWrapper" data-bind="click:$root.onClickShareWrapper">
+                <div class="js_dialog" id="share" style="display: none;">
+                    <div class="weui-mask"></div>
+                    <div class="share-layer">
+                        <img class="share-pic" src="../../images/sharePic.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--html segment end-->    </section>
+</div>
+
+</body>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myfirstChart = echarts.init(document.getElementById('first-echart-box'));
+    // 指定图表的配置项和数据
+    var data1 = [150, 52, 200, 334, 390, 330, 220, 333, 56, 34, 55, 67, 98, 235, 342, 454, 231, 56, 78, 352, 231, 35, 66, 68, 150, 52, 200, 334, 390, 330, 220, 333, 56, 34, 55, 67, 98, 235, 342, 454, 231, 56, 78, 352, 231, 35, 66, 68]
+    var option = {
+        title: {
+            text: 'PM2.5-48小时记录',
+            textStyle: {
+                color: "#ffffff",
+                fontSize: 16,
+            },
+            x: "center",
+
+            bottom: 0,
+        },
+        color: ['#ffffff'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '1%',
+            right: '2%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            data: [],
+            axisTick: {
+                alignWithLabel: false,
+            },
+            axisLine: { //坐标轴边线颜色
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            },
+            axisLable: {
+                show: false
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '',
+            min: 0,
+            max: 500,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            }
+        }],
+        series: [{
+            name: 'pm2.5',
+            type: 'bar',
+            barWidth: '80%',
+            data: data1 //数据数据
+        }]
+    };
+    myfirstChart.setOption(option);
+    //		第二个柱状图
+    var mynextChart = echarts.init(document.getElementById('second-echart-box'));
+    var data2 = [1.50, 1.52, 2.80, 1.34, 0.50, 2.30, 2.20, 0.98, 0.56, 0.34, 0.55, 1.67, 1.98, 2.35, 1.42, 0.54, 1.31, 1.56, 1.78, 1.52, 1.31, 2.15, 1.66, 1.68, 1.50, 1.52, 2.00, 1.34, 1.90, 1.30, 2.20, 1.33, 1.56, 1.34, 0.55, 1.67, 0.98, 2.35, 1.42, 1.54, 2.31, 0.56, 0.78, 1.52, 2.31, 1.35, 1.66, 0.68]
+    var option = {
+        title: {
+            text: '甲醛-48小时记录',
+            textStyle: {
+                color: "#ffffff",
+                fontSize: 16,
+            },
+            x: "center",
+            bottom: 0,
+        },
+        color: ['#ffffff'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+                label: {
+                    textStyle: {
+                        color: '#fff',
+                    }
+                }
+            }
+        },
+        grid: {
+            left: '1%',
+            right: '2%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            data: [],
+            axisTick: {
+                alignWithLabel: false,
+            },
+            axisLine: { //坐标轴边线颜色
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            },
+            axisLable: {
+                show: false
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '',
+            min: 0,
+            max: 3.00,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            }
+        }],
+        series: [{
+            name: '甲醛',
+            type: 'bar',
+            barWidth: '80%',
+            data: data2 //数据数据
+        }]
+    };
+    mynextChart.setOption(option);
+    //		第三个柱状图
+    var mythreeChart = echarts.init(document.getElementById('three-echart-box'));
+    var data3 = [0.25, 1.52, 2.80, 1.34, 3.50, 2.30, 2.20, 0.98, 0.56, 0.34, 0.55, 1.67, 1.98, 2.35, 1.42, 4.54, 3.31, 1.56, 1.78, 3.52, 2.31, 3.15, 1.66, 1.68, 1.50, 1.52, 2.00, 3.34, 3.90, 3.30, 2.20, 3.33, 1.56, 1.34, 0.55, 1.67, 0.98, 2.35, 3.42, 4.54, 2.31, 0.56, 0.78, 3.52, 2.31, 1.35, 1.66, 0.68]
+    var option = {
+        title: {
+            text: '化学污染物-48小时记录',
+            textStyle: {
+                color: "#ffffff",
+                fontSize: 16,
+            },
+            x: "center",
+            bottom: 0,
+        },
+        color: ['#ffffff'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+                label: {
+                    textStyle: {
+                        color: '#fff',
+                    }
+                }
+            }
+        },
+        grid: {
+            left: '1%',
+            right: '2%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            data: [],
+            axisTick: {
+                alignWithLabel: false,
+            },
+            axisLine: { //坐标轴边线颜色
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            },
+            axisLable: {
+                show: false
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '',
+            min: 0,
+            max: 10,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            }
+        }],
+        series: [{
+            name: '化学污染物',
+            type: 'bar',
+            barWidth: '80%',
+            data: data3 //数据数据
+        }]
+    };
+    mythreeChart.setOption(option);
+    //		第四个柱状图
+    var myfourChart = echarts.init(document.getElementById('four-echart-box'));
+    var data4 = [150, 152, 280, 134, 325, 320, 220, 358, 326, 264, 255, 216, 198, 235, 142, 254, 231, 215, 217, 322, 231, 215, 126, 128, 150, 152, 32, 34, 90, 30, 20, 33, 56, 123, 55, 167, 98, 35, 42, 54, 31, 56, 78, 52, 31, 35, 166, 68]
+    var option = {
+        title: {
+            text: '污染指数-48小时记录',
+            textStyle: {
+                color: "#ffffff",
+                fontSize: 16,
+            },
+            x: "center",
+            bottom: 0,
+        },
+        color: ['#ffffff'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+                label: {
+                    textStyle: {
+                        color: '#fff',
+                    }
+                }
+            }
+        },
+        grid: {
+            left: '1%',
+            right: '2%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            data: [],
+            axisTick: {
+                alignWithLabel: false,
+            },
+            axisLine: { //坐标轴边线颜色
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            },
+            axisLable: {
+                show: false
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '',
+            min: 0,
+            max: 500,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            }
+        }],
+        series: [{
+            name: '污染指数',
+            type: 'bar',
+            barWidth: '80%',
+            data: data4 //数据数据
+        }]
+    };
+    myfourChart.setOption(option);
+    //		第五个柱状图
+    var myfiveChart = echarts.init(document.getElementById('five-echart-box'));
+    var data5 = [-15, 15, 28, 34, 35, 30, 22, 18, 16, 34, 25, 17, 19, 23, 14, 14, 31, 15, 17, 32, 23, 31, 16, 18, 15, 15, 20, 24, 30, 30, 22, 33, 16, 14, 15, 17, 18, 23, 24, 25, 23, 25, 18, 32, 31, 15, 16, 18]
+    var option = {
+        title: {
+            text: '温度',
+            textStyle: {
+                color: "#ffffff",
+                fontSize: 16,
+            },
+            x: "center",
+            bottom: 0,
+        },
+        color: ['#ffffff'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+                label: {
+                    textStyle: {
+                        color: '#fff',
+                    }
+                }
+            }
+        },
+        grid: {
+            left: '1%',
+            right: '2%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            data: [],
+            axisTick: {
+                alignWithLabel: false,
+            },
+            axisLine: { //坐标轴边线颜色
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            },
+            axisLable: {
+                show: false
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '',
+            min: -20,
+            max: 50,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            }
+        }],
+        series: [{
+            name: '温度',
+            type: 'bar',
+            barWidth: '80%',
+            data: data5 //数据数据
+        }]
+    };
+    myfiveChart.setOption(option);
+    //		第六个柱状图
+    var mysixChart = echarts.init(document.getElementById('six-echart-box'));
+    var data6 = [15, 15, 28, 34, 35, 45, 52, 68, 56, 34, 25, 77, 69, 23, 34, 44, 31, 55, 57, 32, 23, 31, 46, 78, 35, 35, 40, 44, 30, 30, 22, 33, 36, 44, 35, 37, 38, 43, 34, 35, 43, 35, 68, 32, 31, 35, 46, 58]
+    var option = {
+        title: {
+            text: '湿度',
+            textStyle: {
+                color: "#ffffff",
+                fontSize: 16,
+            },
+            x: "center",
+            bottom: 0,
+        },
+        color: ['#ffffff'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+                label: {
+                    textStyle: {
+                        color: '#fff',
+                    }
+                }
+            }
+        },
+        grid: {
+            left: '1%',
+            right: '2%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            data: [],
+            axisTick: {
+                alignWithLabel: false,
+            },
+            axisLine: { //坐标轴边线颜色
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            },
+            axisLable: {
+                show: false
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '',
+            min: 0,
+            max: 100,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: ['#ffffff']
+                }
+            }
+        }],
+        series: [{
+            name: '湿度',
+            type: 'bar',
+            barWidth: '80%',
+            data: data6 //数据数据
+        }]
+    };
+    mysixChart.setOption(option);
+
+</script>
+
+<script>
+    $(function () {
+        $('#showDialog1').click(function () {
+            $('#changeNameWrapper').fadeIn(200);
+        });
+
+        $('#dialogs').on('click', '.weui-dialog__btn', function () {
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+    });
+
+</script>
+<!--第一个PM2.5环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box1').each(function (index, el) {
+            //最小值
+            var minA = 0;
+            //最大值
+            var maxA = 500;
+            //一个数字平均旋转度数
+            var meanA = 180 / (maxA - minA);
+            //具体数字
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+            //判断背景环颜色
+            if (isNaN(originalNum)) {
+                $(this).addClass('dial-box-white');
+            } else {
+                if (originalNum <= 75) {
+                    $(this).addClass('dial-box-blue');
+                } else if (75 < originalNum && originalNum <= 150) {
+                    $(this).addClass('dial-box-yellow');
+                } else {
+                    $(this).addClass('dial-box-red');
+                }
+                ;
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第二个甲醛环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box2').each(function (index, el) {
+            var minA = 0;
+            var maxA = 3;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+
+            //判断背景环颜色
+            if (isNaN(originalNum)) {
+                $(this).addClass('dial-box-white');
+            } else {
+                if (originalNum < 0.10) {
+                    $(this).addClass('dial-box-blue');
+                } else if (0.10 <= originalNum && originalNum <= 0.19) {
+                    $(this).addClass('dial-box-yellow');
+                } else {
+                    $(this).addClass('dial-box-red');
+                }
+                ;
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第三个化学污染物环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box3').each(function (index, el) {
+            var minA = 0;
+            var maxA = 10;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+            //判断背景环颜色
+            if (isNaN(originalNum)) {
+                $(this).addClass('dial-box-white');
+            } else {
+                if (originalNum < 0.60) {
+                    $(this).addClass('dial-box-blue');
+                } else if (0.60 <= originalNum && originalNum <= 1.99) {
+                    $(this).addClass('dial-box-yellow');
+                } else {
+                    $(this).addClass('dial-box-red');
+                }
+                ;
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第四个二氧化碳环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box4').each(function (index, el) {
+            var minA = 0;
+            var maxA = 500;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+
+            //判断背景环颜色
+            if (isNaN(originalNum)) {
+                $(this).addClass('dial-box-white');
+            } else {
+                if (originalNum <= 100) {
+                    $(this).addClass('dial-box-blue');
+                } else if (101 < originalNum && originalNum <= 200) {
+                    $(this).addClass('dial-box-yellow');
+                } else {
+                    $(this).addClass('dial-box-red');
+                }
+                ;
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第五个温度环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box5').each(function (index, el) {
+            var minA = -20;
+            var maxA = 50;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+        });
+    });
+
+</script>
+<!--第六个温、湿度环形旋转度数-->
+<script>
+    $(function () {
+        $('.dial-box6').each(function (index, el) {
+            var minA = 0;
+            var maxA = 100;
+            var meanA = 180 / (maxA - minA)
+            var originalNum = parseFloat($(this).find('.big-number').text());
+            var num = (originalNum || 0) * meanA;
+            if (num <= 180) {
+                $(this).find('.out-cricle').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.out-cricle').css('transform', "rotate(180deg)");
+
+            }
+            ;
+        });
+    });
+
+</script>
+</html>

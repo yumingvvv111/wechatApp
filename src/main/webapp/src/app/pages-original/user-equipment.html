@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>我的设备</title>
+		<link rel="stylesheet" href="../style/weui.min.css">
+		<link rel="stylesheet" href="../style/p2-style.css">
+		<link rel="stylesheet" href="../style/equipment.css">
+		<link rel="stylesheet" href="../style/page-css/user-equipment.css">
+		<script src="../js/lib/jquery-2.1.4.js"></script>
+	</head>
+	<body>
+	<div class="container" id="container">
+		<section class="page-binding-description">
+			<!--html segment begin-->
+			<script type="text/html">
+			<!--<div class="weui-toptips">已有设备列表</div>-->
+				<div class="page user-equipment" data-bind="$root">
+					<input type="hidden" name="title" value="已有设备列表"/>
+					<div class="weui-cells" data-bind="foreach:(($root.equipmentList))">
+						<div class="weui-cell" data-bind="click:$root.gotoChartPage">
+							<div class="weui-cell_hd cell_hd-pic">
+								<img src="../../images/product01.jpg">
+								<span class="bottom-bt" data-bind="isPrimary" data-if="isPrimary==0">主</span>
+							</div>
+							<div class="weui-cell_bd">
+								<p class="product-name" data-bind="text:'空气猫'">空气猫PM2.5检测仪</p>
+								<p class="product-position" data-bind="text:roomName">卧室</p>
+								<p class="product-mac" data-bind="text:mac">ab:ab:ab:ab:ab:ab</p>
+							</div>
+							<div class="weui-cell_ft">
+								<a href="javascript:;" class="cell_ft-pic equipment-remove" data-bind="click:$root.onClickUnbind">
+									<img src="../../images/remove01.png">
+								</a>
+							</div>
+						</div>
+						<!--segment exclude begin-->
+						<div class="weui-cell">
+							<div class="weui-cell_hd cell_hd-pic">
+								<img src="../../images/product02.jpg">
+							</div>
+							<div class="weui-cell_bd">
+								<p class="product-name">空气猫P6</p>
+								<p class="product-position">未命名</p>
+								<p class="product-mac">ed:ef:ab:ab:ab:ab</p>
+							</div>
+							<div class="weui-cell_ft">
+								<a href="javascript:;" class="cell_ft-pic equipment-remove">
+									<img src="../../images/remove01.png">
+								</a>
+							</div>
+						</div>
+						<!--segment exclude end-->
+					</div>
+
+					<div class="add-equipment-btn">
+						<a href="javascript:;" class="weui-btn weui-btn_primary" data-bind="click:onClickAdd">+添加设备</a>
+					</div>
+					<!--弹出窗dialogs-->
+					<div id="dialogs">
+						<div class="js_dialog" id="iosDialog1" style="display: none;">
+							<div class="weui-mask"></div>
+							<div class="weui-dialog">
+								<div class="weui-dialog__hd"><strong class="weui-dialog__title">确定解绑吗？</strong></div>
+								<div class="weui-dialog__ft">
+									<a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" data-bind="click:$root.onClickExecuteUnbind">确定</a>
+									<a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" data-bind="click:$root.onClickCancel">取消</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--弹出窗end-->
+				</div>
+			</script>
+			<!--html segment end-->
+		</section>
+	</div>
+
+
+	</body>
+	<script>
+    $(function(){
+        $('.equipment-remove').click(function(){
+            $('#iosDialog1').fadeIn(200);
+        });
+
+	    $('#dialogs').on('click', '.weui-dialog__btn', function(){
+	         $(this).parents('.js_dialog').fadeOut(200);
+	    });
+    });
+
+	</script>
+</html>

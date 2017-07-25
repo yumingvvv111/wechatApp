@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>操作成功页面</title>
+		<link rel="stylesheet" href="../style/weui.min.css">
+		<link rel="stylesheet" href="../style/p2-style.css">
+		<link rel="stylesheet" href="../style/equipment.css">
+		<link rel="stylesheet" href="../style/page-css/user-equipment.css">
+		<script src="../js/lib/jquery-2.1.4.js"></script>
+	</head>
+	<body>
+	<div class="container" id="container">
+		<section class="page-msg-success">
+			<!--html segment begin-->
+			<div class="page msg_success js_show">
+				<input type="hidden" name="title" value="操作成功"/>
+				<div class="weui-msg">
+					<div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+					<div class="weui-msg__text-area">
+						<h2 class="weui-msg__title" data-bind="text:$root.title">操作成功</h2>
+						<p class="weui-msg__desc" data-bind="html:$root.desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<a href="javascript:void(0);">文字链接</a></p>
+					</div>
+					<div class="weui-msg__opr-area">
+						<p class="weui-btn-area">
+							<a href="javascript:void(0)" class="weui-btn weui-btn_primary" data-bind="text$root.PrimaryButtonText">推荐操作</a>
+							<!--<a href="javascript:history.back();" class="weui-btn weui-btn_default">辅助操作</a>-->
+						</p>
+					</div>
+					<div class="weui-msg__extra-area">
+						<div class="weui-footer">
+							<p class="weui-footer__links">
+								<a href="http://bioeh.com/" target="_blank" class="weui-footer__link" data-bind="text:$root.footerText">底部链接文本</a>
+							</p>
+							<p class="weui-footer__text">Copyright © 2015 CapitalBio Technology Tnc.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--html segment end-->
+		</section>
+	</div>
+	</body>
+</html>

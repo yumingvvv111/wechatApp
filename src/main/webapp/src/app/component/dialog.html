@@ -1,0 +1,16 @@
+<div class="component-dialog" data-bind="$root">
+  <div class="js_dialog yy-template" data-bind="attr:{id:$root.id}" style="opacity: 1; display: block;">
+    <div class="weui-mask" data-bind="click:$root.onClickMask"></div>
+    <div class="weui-dialog">
+      <div class="weui-dialog__hd" data-bind="text:$root.title" data-if="$root.isShowTitle"><strong
+          class="weui-dialog__title"></strong></div>
+      <div class="weui-dialog__bd" data-bind="html:$root.content"></div>
+      <div class="weui-dialog__ft" data-bind="$root.isShowFooter" data-if="$root.isShowFooter">
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary"
+           data-bind="{text:$root.primaryText,click:$root.onClickPrimary}" data-if="$root.isShowGrayButton"></a>
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default"
+           data-bind="{text:$root.defaultText,click:$root.onClickDefault}"></a>
+      </div>
+    </div>
+  </div>
+</div>

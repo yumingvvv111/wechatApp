@@ -1,0 +1,262 @@
+.black-bgcolor {
+    background: #333333;
+}
+
+.container .top-title {
+    padding: 20px;
+    height: 70px;
+}
+
+.top-title span, .top-title a {
+    display: block;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.top-title .home {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0 15px;
+    border-radius: 15px;
+}
+
+.top-title .break-info {
+    padding-left: 35px;
+    background: url(../../images/link_off.png) no-repeat;
+    background-size: 30%;
+}
+
+.top-title .link-info {
+    padding-left: 35px;
+    background: url(../../images/link.png) no-repeat;
+    background-size: 30%;
+}
+
+.mlr5 {
+    margin: 0 5px;
+}
+
+/*指示环样式*/
+.dial-listbox {
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.dial-box {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 15px 5px 0;
+    position: relative;
+    text-align: center;
+}
+
+@media only screen and (min-width: 360px ) {
+    .dial-box {
+        margin: 15px 15px 0;
+    }
+}
+
+/*红色环*/
+.dial-box-red {
+    color: #ff5855;
+    background: url(../../images/bg_red.png) no-repeat;
+    background-size: 100%;
+}
+
+/*蓝色环*/
+.dial-box-blue {
+    color: #009cff;
+    background: url(../../images/bg_blue.png) no-repeat;
+    background-size: 100%;
+}
+
+/*白色环*/
+.dial-box-white {
+    color: #FFFFFF;
+    background: url(../../images/bg-white2.png) no-repeat;
+    background-size: 100%;
+}
+
+/*黄色环*/
+.dial-box-yellow {
+    color: #FFA23B;
+    background: url(../../images/bg-yellow.png) no-repeat;
+    background-size: 100%;
+}
+
+.dial-box .pie-cricle {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip: rect(0, auto, 75px, auto);
+    z-index: 1;
+}
+
+.dial-box .pie-cricle .out-cricle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip: rect(75px, auto, auto, 0);
+}
+
+/*各种颜色的环*/
+.dial-box-red .pie-cricle .out-cricle {
+    background: #FF5855;
+}
+
+.dial-box-blue .pie-cricle .out-cricle {
+    background: #009cff;
+}
+
+.dial-box-white .pie-cricle .out-cricle {
+    background: #FFFFFF;
+}
+
+.dial-box-yellow .pie-cricle .out-cricle {
+    background: #FFA23B;
+}
+
+.dial-box .pie-cricle .inner-cricle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    clip: rect(0, auto, 70px, auto);
+}
+
+.dial-box-red .inner-cricle {
+    background: #333333 url(../../images/red-dian.png) no-repeat;
+    background-size: 100%;
+}
+
+.dial-box-blue .inner-cricle {
+    background: #333333 url(../../images/blue-dian.png) no-repeat;
+    background-size: 100%;
+}
+
+.dial-box-white .inner-cricle {
+    background: #333333 url(../../images/white-dian.png) no-repeat;
+    background-size: 100%;
+}
+
+.dial-box-yellow .inner-cricle {
+    background: #333333 url(../../images/yellow-dian.png) no-repeat;
+    background-size: 100%;
+}
+
+.dial-box .mark-box {
+    z-index: 99;
+    position: absolute;
+    left: 5px;
+    top: 0;
+    width: 140px;
+}
+
+.dial-box .mark-box .company {
+    height: 48px;
+    padding-top: 24px;
+}
+
+.dial-box .mark-box .texting-big-num .big-number {
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+.dial-box .mark-box .texting-num {
+    font-size: 16px;
+}
+
+/*柱状图*/
+.first-echart-box, .second-echart-box, .three-echart-box, .four-echart-box, .five-echart-box, .six-echart-box {
+    width: 100%;
+    height: 500px;
+    padding: 0 10px;
+}
+
+.foot-tabbar {
+    position: fixed;
+    bottom: 15px;
+    width: 100%;
+    max-width: 768px;
+    height: 50px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    z-index:199;
+}
+
+.foot-tabbar .weui-tabbar {
+    position: initial;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.foot-tabbar .weui-tabbar__icon {
+    width: 27px;
+    height: 24px;
+}
+
+.weui-tabbar-link .weui-tabbar__label {
+    color: #333333;
+}
+
+.weui-tabbar:before {
+    border-top: 0;
+}
+
+/*四条指示信息*/
+.prompt-message {
+    padding: 0 15px;
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.prompt-message p {
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+.prompt-message .good-message {
+    background: url(../../images/normal.png) no-repeat;
+    background-size: 18px 18px;
+    background-position: left top;
+}
+
+.prompt-message .remind-message {
+    background: url(../../images/remind.png) no-repeat;
+    background-size: 18px 18px;
+    background-position: left top;
+}
+
+.prompt-message .Warning-message {
+    background: url(../../images/warning.png) no-repeat;
+    background-size: 18px 18px;
+    background-position: left top;
+}
+
+.top-title a {
+    min-width: 70px;
+    min-height: 30px;
+    text-align:center;
+}
+
+.share-pic {
+    width: 95%;
+    height: 100%;
+}
+.share-layer{
+    position: fixed;
+    right: -30px;
+    top: 0;
+    z-index: 999999;
+}
