@@ -2,18 +2,18 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'css!style/page-css/
 
 
     var paramFromURL = common.utils.getInfoFromURL().param;
+    var jsonData = JSON.parse(paramFromURL.data);
 
     var scope = {
-        equipmentName: ''
+        equipmentName: jsonData.equipmentName
     };
 
     pageManager.initPage(html, 'p6-play', scope, afterInitPage);
 
 
     function afterInitPage() {
-        $('.page-p6-play #equipmentName').hide();
         if(paramFromURL.coverPage){
-            var data = JSON.parse(paramFromURL.data);
+            var data = jsonData;
             var circleBoardModel = data.circleBoardModel;
             circleBoardModel.forEach(function (v) {
                 renderCircleBoard(v.selector, v.frontRange, v.backRange, v.value);
@@ -110,17 +110,17 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'css!style/page-css/
 
 
     function renderTime(_time, selector) {
-        var _time2 = (new Date()).getTime();
-        _time = _time2 - _time;
-        if (_time < 60 * 1000) {
-            _time = parseInt(_time / 1000) + '秒前'
-        } else if (_time >= 60 * 1000 && _time < 60 * 60 * 1000) {
-            _time = parseInt(_time / (60 * 1000)) + '分钟前'
-        } else if (_time >= 60 * 60 * 1000 && _time < 60 * 60 * 24 * 1000) {
-            _time = parseInt(_time / (60 * 60 * 1000)) + '小时前'
-        } else {
-            _time = parseInt(_time / (60 * 60 * 24 * 1000)) + '天前'
-        }
+        // var _time2 = (new Date()).getTime();
+        // _time = _time2 - _time;
+        // if (_time < 60 * 1000) {
+        //     _time = parseInt(_time / 1000) + '秒前'
+        // } else if (_time >= 60 * 1000 && _time < 60 * 60 * 1000) {
+        //     _time = parseInt(_time / (60 * 1000)) + '分钟前'
+        // } else if (_time >= 60 * 60 * 1000 && _time < 60 * 60 * 24 * 1000) {
+        //     _time = parseInt(_time / (60 * 60 * 1000)) + '小时前'
+        // } else {
+        //     _time = parseInt(_time / (60 * 60 * 24 * 1000)) + '天前'
+        // }
         $(selector).text(_time || 0);
     }
 

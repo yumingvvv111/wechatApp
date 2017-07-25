@@ -63,6 +63,7 @@ define(function (require) {
                 try {
                     startY = originalEvent.touches[0].clientY;
                     startX = originalEvent.touches[0].clientX;
+                    console.log(startX, startY);
                     // $('<p>'+document.body.scrollTop+'</p>').insertBefore('body');
                     if (!isArrivedTop && document.body.scrollTop === 0) {
                         isArrivedTop = true;
@@ -74,7 +75,7 @@ define(function (require) {
                 var originalEvent = event;
                 endY = originalEvent.changedTouches[0].clientY;
                 endX = originalEvent.changedTouches[0].clientX;
-
+                console.log(endY , startY);
                 if (!isArrivedTop && document.body.scrollTop === 0) {
                     isArrivedTop = true;
                 }
@@ -99,7 +100,7 @@ define(function (require) {
             var onTouchend = function (event) {
                 $('.refresh-icon').css('visibility', 'hidden');
             };
-            if (page === 'home') {
+            if (page === 'p6-data') {
                 document.ontouchstart = onTouchstart;
                 document.ontouchmove = onTouchmove;
                 document.ontouchend = onTouchend;
@@ -459,9 +460,11 @@ define(function (require) {
             }
             if (page === 'other') {
                 myRequire(['../app/js/page-js/other/' + page], callback);
+                this.setRefreshPage(page);
                 return;
             }
             myRequire(['../app/js/page-js/' + page], callback);
+            this.setRefreshPage(page);
         },
         initPage: function (html, page, scope, callback) {
             var self = this;

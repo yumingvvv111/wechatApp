@@ -260,3 +260,5 @@
     top: 0;
     z-index: 999999;
 }
+
+.hide-box{ width: 33%; height:50px; background: #FFFFFF; position: absolute; top: 0; z-index: 99; opacity: 0.5;}

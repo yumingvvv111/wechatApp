@@ -951,3 +951,13 @@ input[type=date] {
 .hidden{
     display: none;
 }
+.refresh-icon{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: url('images/refresh-icon.png') no-repeat 0 0;
+    top: 0;
+    left: 45%;
+    z-index: 99999;
+    visibility: hidden;
+}

@@ -25,6 +25,16 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
         // history.replaceState({share:true}, '分享页', shareURL);
         return shareURL;
     }
+    //底部关机按钮
+    function shutdown(){
+        $(this).before("<div class='hide-box'></div>");
+        setTimeout(function(){
+            $('.hide-box').fadeOut(3000);
+            setTimeout(function(){
+                $('.hide-box').remove();
+            },3000);
+        },15000);
+    }
 
     var scope = {
         equipmentName: '',
@@ -37,6 +47,7 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
         onClickShareWrapper: function () {
             $('#share').fadeOut(200);
         },
+        onClickShutdown: shutdown,
         onClickPrimary: function () {
             var name = $('#changeNameWrapper input').val();
             pageManager.requestBackend({
@@ -107,13 +118,18 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
             yAxis: [{
                 type: 'value',
                 name: '',
-                min: range[0],
-                max: range[1],
+                // min: range[0],
+                // max: range[1],
                 position: 'left',
                 axisLine: {
                     lineStyle: {
                         color: ['#ffffff']
                     }
+                },
+                axisLabel:{
+                			textStyle: {
+                				color:['#ffffff']
+                			}
                 }
             }],
             series: [{
@@ -132,11 +148,10 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
         var minA = frontRange[0];
         //最大值
         var maxA = frontRange[1];
-        //一个数字平均旋转度数
-        var meanA = 180 / (maxA - minA);
         //具体数字
         var originalNum = parseFloat(value);
-        var num = (originalNum || 0) * meanA;
+        //一个数字平均旋转度数
+        var num = 180 * (originalNum - minA) / (maxA - minA);
         circleElement.find('.big-number').text(isNaN(originalNum) ? '--' : originalNum);
         if (num <= 180) {
             animateIt(circleElement, num);
@@ -175,10 +190,10 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
                 for (var i = 0, j = i + 1; i < stages.length - 1; i++, j = i + 1) {
                     if (originalNum > stages[i] && originalNum <= stages[j]) {
                         circleElement.find('.small-number').text(stageName[i]);
-                        if (originalNum < colorStage[0]) {
+                        if (originalNum <= colorStage[0]) {
                             colorName = 'dial-box-blue';
                             renderWarningMessage(type, 0);
-                        } else if (originalNum >= colorStage[0] && originalNum < colorStage[1]) {
+                        } else if (originalNum > colorStage[0] && originalNum <= colorStage[1]) {
                             colorName = 'dial-box-yellow';
                             renderWarningMessage(type, 1);
                         } else {
@@ -306,7 +321,7 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
                         $('.page-p6-data #equipmentName').hide();
                     }
                     try{
-                        $('.page-p6-data #equipmentName').text(d.position.trim() === '' ? '未命名' : d.position);
+                        $('.page-p6-data #equipmentName').text((chartJsonData.equipmentName = d.position.trim() === '' ? '未命名' : d.position));
                         chartJsonData.uploadTime = d.uploadTime;
                         renderTime(d.uploadTime, '.page-p6-data .link-info');
                     }catch(ex){}
@@ -314,17 +329,17 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
                     window.shareOption.link = getShareURL(chartJsonData);
 
                     function renderTime(_time, selector) {
-                        var _time2 = (new Date()).getTime();
-                        _time = _time2 - _time;
-                        if (_time < 60 * 1000) {
-                            _time = parseInt(_time / 1000) + '秒前'
-                        } else if (_time >= 60 * 1000 && _time < 60 * 60 * 1000) {
-                            _time = parseInt(_time / (60 * 1000)) + '分钟前'
-                        } else if (_time >= 60 * 60 * 1000 && _time < 60 * 60 * 24 * 1000) {
-                            _time = parseInt(_time / (60 * 60 * 1000)) + '小时前'
-                        } else {
-                            _time = parseInt(_time / (60 * 60 * 24 * 1000)) + '天前'
-                        }
+                        // var _time2 = (new Date()).getTime();
+                        // _time = _time2 - _time;
+                        // if (_time < 60 * 1000) {
+                        //     _time = parseInt(_time / 1000) + '秒前'
+                        // } else if (_time >= 60 * 1000 && _time < 60 * 60 * 1000) {
+                        //     _time = parseInt(_time / (60 * 1000)) + '分钟前'
+                        // } else if (_time >= 60 * 60 * 1000 && _time < 60 * 60 * 24 * 1000) {
+                        //     _time = parseInt(_time / (60 * 60 * 1000)) + '小时前'
+                        // } else {
+                        //     _time = parseInt(_time / (60 * 60 * 24 * 1000)) + '天前'
+                        // }
                         $(selector).text(_time || 0);
                     }
                 }
