@@ -9,6 +9,7 @@ var common=require("common");
         title: paramFromURL.title || '操作成功!',
         desc: paramFromURL.desc || '',
         primaryButtonText: '返回',
+        footerText: '',
         onClickPrimary: function () {
             wx.closeWindow();
         }

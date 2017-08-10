@@ -1,2 +1,2 @@
-webpackJsonp([4],{0:function(a,i,e){var t=e(10),s=e(3);s.initPage(t,"display-page")},10:function(a,i,e){a.exports=' <div class="page air-good orange-bgcolor"> <input type=hidden name=title value=过敏史 /> </div> '}});
+webpackJsonp([7],{0:function(i,a,e){var t=e(10),s=e(3);s.initPage(t,"display-page")},10:function(i,a,e){i.exports=' <div class="page air-good orange-bgcolor"> <input type=hidden name=title value=过敏史 /> </div> '}});
 //# sourceMappingURL=display-page.js.map

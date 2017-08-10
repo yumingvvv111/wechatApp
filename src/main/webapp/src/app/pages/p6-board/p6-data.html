@@ -113,11 +113,15 @@
             </div>
             <div class="foot-tabbar">
                 <div class="weui-tabbar weui-tabbar-link">
-                    <a href="javascript:;" class="weui-tabbar__item" data-bind="click:$root.onClickShutdown">
+                    <a href="javascript:;" class="weui-tabbar__item" id="p6DataShutdown" data-bind="click:$root.onClickShutdown">
                         <img src="app/images/Shutdown.png" alt="" class="weui-tabbar__icon">
                         <p class="weui-tabbar__label">关机</p>
                     </a>
-                    <a href="javascript:;" class="weui-tabbar__item">
+                    <a href="javascript:;" class="weui-tabbar__item" id="p6DataSheScreenOff"  data-bind="click:$root.onClickSheScreenOFF">
+                        <img src="app/images/Always.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">恢复默认</p>
+                    </a>
+                    <a href="javascript:;" class="weui-tabbar__item"   id="p6DataSheScreen"  style="display:none"  data-bind="click:$root.onClickSheScreen">
                         <img src="app/images/Always.png" alt="" class="weui-tabbar__icon">
                         <p class="weui-tabbar__label">设备常亮</p>
                     </a>

@@ -13,7 +13,7 @@ public final class Constants {
 
     public static final String URI_REST = "/restEquiment";
 
-    public static final String URI_EQUIPMENT = "/equiment";
+    public static final String URI_EQUIPMENT = "/equimentData";
 
     public static final String URI_COMMENTS = "/comments";
     

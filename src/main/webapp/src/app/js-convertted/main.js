@@ -60,7 +60,7 @@
     }
 
 
-    //获取jsSDK的 ticket
+   /* //获取jsSDK的 ticket
     function getTicket() {
         var dfd = new $.Deferred();
         pageManager.ajaxManager({
@@ -81,12 +81,13 @@
         });
 
         return dfd.promise();
-    }
+    }*/
 
 
     getWxId().then(function (data) {
         if (data && data.from === 'code') {
-            location.href = location.href.replace(/code=(.*?)(?=&|$|#)/, 'wxId=' + window.WXID);
+            history.replaceState({}, 'home', location.href.replace(/code=(.*?)(?=&|$|#)/, 'wxId=' + window.WXID));
+            location.reload();
             return;
         }
         var page = paramFromInfo.hash || defaultPage;
@@ -97,7 +98,7 @@
         // pageManager._go(defaultPage);
     });
 
-    getTicket().then(function (res) {
+    /*getTicket().then(function (res) {
         wx.config({
             beta: true,
             debug: false,
@@ -157,6 +158,6 @@
         });
     }, function () {
         console.warn('获取js ticket失败');
-    });
+    });*/
 
 

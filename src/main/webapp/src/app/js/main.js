@@ -60,7 +60,7 @@ define(function (require) {
     }
 
 
-    //获取jsSDK的 ticket
+   /* //获取jsSDK的 ticket
     function getTicket() {
         var dfd = new $.Deferred();
         pageManager.ajaxManager({
@@ -81,7 +81,7 @@ define(function (require) {
         });
 
         return dfd.promise();
-    }
+    }*/
 
 
     getWxId().then(function (data) {
@@ -98,7 +98,7 @@ define(function (require) {
         // pageManager._go(defaultPage);
     });
 
-    getTicket().then(function (res) {
+    /*getTicket().then(function (res) {
         wx.config({
             beta: true,
             debug: false,
@@ -158,7 +158,7 @@ define(function (require) {
         });
     }, function () {
         console.warn('获取js ticket失败');
-    });
+    });*/
 
 
 });

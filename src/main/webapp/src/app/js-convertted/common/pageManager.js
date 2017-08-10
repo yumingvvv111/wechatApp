@@ -7,7 +7,6 @@
     window.pathUrl = infoFromURL.path;
     var myRequire = window.requirejs || function (requireArr, callback) {
             requireArr.forEach(function (v) {
-                console.log(v);
                 var scriptName = v.match(/\/([^\/]+)$/)[1] + '.js';
                 var oldScript = getOldScript(scriptName);
 
@@ -31,8 +30,9 @@
                 newScript.src = './app/js/' + scriptName;
                 newScript.type = 'text/javascript'
                 document.body.appendChild(newScript);
+                callback && callback();
             });
-            callback && callback()
+
         };
     var pageManager = {
         pageRecorder: [],
@@ -40,6 +40,7 @@
         _pageStack: [],
         _defaultPage: null,
         _pageIndex: 1,
+        refreshPageArray: [],
         setDefault: function (defaultPage) {
             this._defaultPage = defaultPage || 'home';
             return this;
@@ -53,19 +54,23 @@
                 location.reload();
             }
         },
-        setRefreshPage: function (page) {
+        setRefreshPage: function (pagesArray, callback) {
             //添加下拉刷新的行为。
             var startX, endX, startY, endY, isArrivedTop = false;
-            var _timer_ = null;
-            var _interval = null;
+            var page = infoFromURL.hash;
+            var timer = null;
+            var pages = this.refreshPageArray.concat(pagesArray);
             var onTouchstart = function (event) {
                 var originalEvent = event;
                 try {
                     startY = originalEvent.touches[0].clientY;
                     startX = originalEvent.touches[0].clientX;
+                    // console.log(startX, startY);
                     // $('<p>'+document.body.scrollTop+'</p>').insertBefore('body');
-                    if (!isArrivedTop && document.body.scrollTop === 0) {
+                    if (document.body.scrollTop === 0 && $('.' + page).scrollTop() === 0) {
                         isArrivedTop = true;
+                    } else {
+                        isArrivedTop = false;
                     }
                 } catch (ex) {
                 }
@@ -74,32 +79,17 @@
                 var originalEvent = event;
                 endY = originalEvent.changedTouches[0].clientY;
                 endX = originalEvent.changedTouches[0].clientX;
-
-                if (!isArrivedTop && document.body.scrollTop === 0) {
-                    isArrivedTop = true;
+                if (endY - startY > 20 && isArrivedTop) {
+                    clearTimeout(timer);
+                    timer = setTimeout(function(){
+                        callback && callback();
+                    }, 1000);
                 }
-                if (endY - startY > 20) {
-                    $('.refresh-icon').attr('style', 'transform: rotate(3600deg);transition-duration: 5s; transition-delay: 0s; visibility: visible;');
-
-//         clearInterval(_interval);
-//         _interval = setInterval(function(){
-
-//           _num++;
-//         }, 200);
-                }
-                clearTimeout(_timer_);
-                _timer_ = setTimeout(function () {
-                    // $('<p style="color:red">'+document.body.scrollTop+'<br>'+endY+'<br>'+startY+'<br>'+isArrivedTop+'</p>').insertBefore('body');
-                    if (endY - startY > 30 && isArrivedTop) {
-                        window.location.href = window.location.href + '?v=' + Math.random();
-                    }
-                    $('.refresh-icon').css('visibility', 'hidden');
-                }, 1000);
             };
             var onTouchend = function (event) {
-                $('.refresh-icon').css('visibility', 'hidden');
+                // $('.refresh-icon').css('visibility', 'hidden');
             };
-            if (page === 'home') {
+            if (pages.indexOf(page) >= 0) {
                 document.ontouchstart = onTouchstart;
                 document.ontouchmove = onTouchmove;
                 document.ontouchend = onTouchend;
@@ -527,7 +517,6 @@
             this._pageIndex++;
             history.replaceState && history.replaceState({_pageIndex: this._pageIndex}, '', location.href);
             self.loadPage(page);
-            this.setRefreshPage(page);
             return this;
         },
         back: function () {
@@ -552,7 +541,6 @@
             stack.dom.find('.page').addClass('slideOut').on('animationend webkitAnimationEnd', function () {
                 stack.dom.remove();
             });
-            this.setRefreshPage(page);
             return this;
         },
         _findInStack: function (page) {

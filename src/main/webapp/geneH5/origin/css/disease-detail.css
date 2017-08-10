@@ -1,0 +1,121 @@
+body{
+	background-color:#EEEEEE ;
+}
+.detail-banner{ 
+	width: 100%;
+	position: relative;	
+}
+.detail-banner .disease-name{
+	color: #FFFFFF;
+	width: 100%;
+	position: absolute;
+	top:20%;
+	text-align: center;
+}
+.detail-banner .disease-name h2{ margin-bottom: 10px;}
+.detail-banner .disease-name span{
+	display: inline-block;
+	margin-left: 5px;
+}
+.level-color em{
+	display: inline-block;
+	width: 10px;
+	height: 13px;
+	background-color:#FFFFFF ;
+	border-radius: 2px;
+	vertical-align: middle;
+	border: 1px solid #FFFFFF;
+}
+.level_1-color em:nth-child(1){
+	background-color:#00d29d;
+}
+.level_2-color em:nth-child(1),.level_2-color em:nth-child(2){
+	background-color:#00d29d;
+}
+.level_3-color em:nth-child(1),.level_3-color em:nth-child(2),.level_3-color em:nth-child(3){
+	background-color:#febb5c;
+}
+.level_4-color em:nth-child(1),.level_4-color em:nth-child(2),.level_4-color em:nth-child(3),.level_4-color em:nth-child(4){
+	background-color:#ff7f7f;
+}
+.level_5-color em{
+	background-color:#ff7f7f;
+}
+
+.section{
+	background: #FFFFFF;
+	width: 100%; 
+	margin-bottom: 10px;
+	padding: 20px 15px;
+}
+.gene-list{
+	overflow: hidden;
+	border-radius:8px;
+	border: 1px solid #EEEEEE;
+	box-shadow: 0 3px 5px #EEEEEE;
+}
+.gene-list table{ 
+	font-size: 13px;
+}
+.gene-list table th{
+	padding: 0 3px;
+	background: #00D29D;
+	font-weight: normal;
+	color: #FFFFFF;
+	line-height: 50px;
+}
+.gene-list table tbody tr{
+	border-bottom: 1px solid #EEEEEE;
+	line-height: 40px;
+}
+.gene-list table tbody tr td{
+	text-align: center;
+}
+.load-more{ padding: 15px; text-align: center;}
+.load-more a{
+	color: #1fa2ff;
+}
+.load-more em{ margin-left: 5px;}
+
+.section .title{
+	padding-bottom:15px;
+	font-size: 18px;
+	color: #333333;
+	border-bottom: 1px solid #EEEEEE;
+	margin-bottom: 15px;
+}
+.section .title h3{
+	padding-left: 40px;
+	background-image: url(../images/icon-03.png);
+	background-repeat: no-repeat;
+	background-size: 30px 150px;
+	line-height: 30px;
+}
+.section .title .gene-intro-tlt{
+	background-position: 0 0;
+}
+.section .title .disease-intro-tlt{
+	background-position: 0 -60px;
+}
+.section .title .risk-factor-tlt{
+	background-position: 0 -120px;
+}
+.section .title .health-care-tlt{
+	background-position: 0 -30px;
+}
+
+.gene-introduction-list .gene-introduction-item{
+	padding-bottom: 15px;
+	border-bottom: 1px solid #EEEEEE;
+}
+.gene-introduction-item .cell-flex{ 
+	min-height: 30px;
+	padding: 0;
+	margin: 15px 0;
+}
+.gene-introduction-item .cell-flex .cell-flex-item:nth-child(1){
+	color: #333333;
+}
+.gene-introduction-item .pull-right{ text-align: right;}
+
+.risk-factor-content p,.health-care-content p{ margin: 10px 0;}

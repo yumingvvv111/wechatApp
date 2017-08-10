@@ -1,0 +1,31 @@
+.disease-list a{ padding: 15px 30px; display: block;}
+.disease-list a:nth-child(2n){
+	background-color:#EEEEEE;
+}
+.disease-list .disease-name{
+	 font-size: 18px; 
+	 color: #333333; 
+	 line-height: 30px;
+	 padding-right: 60px;
+	 background-image:url(../images/icon-05.png) ;
+	 background-repeat:no-repeat;
+	 background-size: 55px 180px;
+	 }
+.level-0{
+	background-position: right 0px; 
+}
+.level-1{
+	background-position: right -30px; 
+}
+.level-2{
+	background-position: right -60px; 
+}
+.level-3{
+	background-position: right -90px; 
+}
+.level-4{
+	background-position: right -120px; 
+}
+.level-5{
+	background-position: right -150px; 
+}

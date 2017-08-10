@@ -16,7 +16,8 @@ var gulp = require('gulp'),
     webpackConfig = require('./webpack.config.js'),
     connect = require('gulp-connect'),
     sourcemaps = require('gulp-sourcemaps'),
-    through2 = require('through2');
+    through2 = require('through2'),
+    sass = require('gulp-sass');
 
 var host = {
     path: 'dist/',
@@ -65,6 +66,17 @@ gulp.task('lessmin', function (done) {
         .pipe(concat('style.min.css'))
         .pipe(gulp.dest('dist/app/style'))
         .on('end', done);
+});
+
+
+gulp.task('sass', function () {
+    return gulp.src('src/app/sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('src/app/style'));
+});
+
+gulp.task('sass:watch', function () {
+    gulp.watch('src/app/sass/**/*.scss', ['sass']);
 });
 
 //将js加上10位md5,并修改html中的引用路径，该动作依赖build-js
@@ -301,6 +313,7 @@ gulp.task("convert-js2-cmd", function (callback) {
 gulp.task("convert-js3-cmd", function (callback) {
     gulp.src(['src/app/js/common/*'])
         .pipe(through2.obj(convertJS))
+        .pipe(gulp.dest('src/app/js-convertted/common'))
         .pipe(gulp.dest('src/app/js-convertted/common'))
         .on('end', callback);
 });

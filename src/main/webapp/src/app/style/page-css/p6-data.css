@@ -16,20 +16,30 @@
 
 .top-title .home {
     background: rgba(0, 0, 0, 0.2);
-    padding: 0 15px;
+    padding: 0 10px;
     border-radius: 15px;
+    width:140px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
-
+@media only screen and (max-width:360px) {
+    .top-title .home {
+        width:110px;
+    }
+}
 .top-title .break-info {
-    padding-left: 35px;
+    display:inline-block;
+    padding-left: 30px;
     background: url(../../images/link_off.png) no-repeat;
-    background-size: 30%;
+    background-size: 24px 24px;
 }
 
 .top-title .link-info {
-    padding-left: 35px;
+    display:inline-block;
+    padding-left: 30px;
     background: url(../../images/link.png) no-repeat;
-    background-size: 30%;
+    background-size:24px 24px;
 }
 
 .mlr5 {
@@ -46,14 +56,14 @@
     width: 150px;
     height: 150px;
     float: left;
-    margin: 15px 5px 0;
+    margin: 0px 5px;
     position: relative;
     text-align: center;
 }
 
 @media only screen and (min-width: 360px ) {
     .dial-box {
-        margin: 15px 15px 0;
+        margin:5px 15px 0;
     }
 }
 
@@ -177,19 +187,29 @@
 /*柱状图*/
 .first-echart-box, .second-echart-box, .three-echart-box, .four-echart-box, .five-echart-box, .six-echart-box {
     width: 100%;
-    height: 500px;
+    height: 240px;
     padding: 0 10px;
 }
 
 .foot-tabbar {
     position: fixed;
-    bottom: 15px;
+    bottom: 10px;
     width: 100%;
     max-width: 768px;
     height: 50px;
     padding: 0 15px;
     box-sizing: border-box;
     z-index:199;
+}
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+	.container .top-title {
+           padding:10px 20px;
+           height: 50px;
+    }
+	.foot-tabbar {
+		 position: fixed;
+		 bottom: 5px;
+	}
 }
 
 .foot-tabbar .weui-tabbar {
@@ -261,4 +281,8 @@
     z-index: 999999;
 }
 
-.hide-box{ width: 33%; height:50px; background: #FFFFFF; position: absolute; top: 0; z-index: 99; opacity: 0.5;}
+.hide-box,.hide-box2{ width: 33%; height:46px; background: #FFFFFF; position: absolute; top:0; z-index: 99; opacity: 0.5;}
+.hide-box2{ left: 33%;}
+.first-echart-box > div,.second-echart-box > div,.three-echart-box > div,.four-echart-box > div,.five-echart-box > div,.six-echart-box > div{
+ background: url(../../images/white-line.png) no-repeat; background-position:40px 30px;
+ }

@@ -3,7 +3,7 @@ define(['css!style/p2-style', 'css!style/equipment', 'css!style/page-css/user-eq
     restAPI.equipment = {
         unbind: {
             url: 'equimentRest/restEquiment/equiment/unbind',
-            param: ['pkId', 'bindType']
+            param: ['pkId', 'bindType','euppkId']
         },
         equipmentList: {
             url: 'equimentRest/restEquiment/equiment/list',
@@ -19,7 +19,7 @@ define(['css!style/p2-style', 'css!style/equipment', 'css!style/page-css/user-eq
             "mac": "--"
         }],
         onClickUnbind: function (event, data) {
-            $('#iosDialog1').fadeIn(200).attr('data-pkId', data.eupId).attr('data-bindType', data.isPrimary);
+            $('#iosDialog1').fadeIn(200).attr('data-pkId', data.eupId).attr('data-bindType', data.isPrimary).attr('data-euppkId', data.euppkId);
             event.preventDefault();
             event.stopPropagation();
             return false;
@@ -31,7 +31,8 @@ define(['css!style/p2-style', 'css!style/equipment', 'css!style/page-css/user-eq
                 url: restAPI.equipment.unbind.url,
                 data: {
                     pkId: target.closest('#iosDialog1').attr('data-pkId'),
-                    bindType: target.closest('#iosDialog1').attr('data-bindType')
+                    bindType: target.closest('#iosDialog1').attr('data-bindType'),
+                    euppkId:target.closest('#iosDialog1').attr('data-euppkId')
                 },
                 type: 'post',
                 success: function (res) {
@@ -61,6 +62,7 @@ define(['css!style/p2-style', 'css!style/equipment', 'css!style/page-css/user-eq
 
     function afterInitPage(element) {
         var param = {};
+        $('.user-equipment').removeClass('hidden');
         pageManager.ajaxManager({
             //hostIndex: 2,
             url: restAPI.equipment.equipmentList.url,

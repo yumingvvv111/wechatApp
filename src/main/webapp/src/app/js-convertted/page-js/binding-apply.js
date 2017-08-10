@@ -5,17 +5,21 @@ var common=require("common");
 
     var paramFromURL = common.utils.getInfoFromURL().param;
 
-    var time = paramFromURL.time;
+    /*var time = paramFromURL.time;
     var now = new Date().getTime();
     var s = (now - time) / (1000 * 60);
     if(s>=3600){
         location.hash = 'invalid-page';
-    }
+    }*/
 
     restAPI.bind = {
         agreeBinding: {
             url: 'equimentRest/restEquiment/equiment/isAgree',
-            param: ['secondaryWxId', 'isAgree', 'nickName', 'pkId']
+            param: ['secondaryWxId', 'isAgree', 'nickName', 'pkId','time']
+        },
+        isExpired: {
+            url: 'equimentRest/restEquiment/equiment/isExpired',
+            param: ['time']
         }
     };
 
@@ -31,7 +35,7 @@ var common=require("common");
                     pageManager.showTooltip(res.message);
                 } else {
                     // renderChart(res.data);
-                    pageManager.go('msg-success?title=恭喜您链接成功!');
+                    pageManager.go(encodeURI('msg-success?title=操作成功!'));
                 }
             }
         });
@@ -43,12 +47,14 @@ var common=require("common");
         mac: paramFromURL.mac,
         product_name: paramFromURL.product_name,
         paramFromURL: paramFromURL,
+        time: paramFromURL.time,
         onClickAgree: function () {
             var param = {
                 secondaryWxId: paramFromURL.secondaryWxId,
                 isAgree: 0,
                 nickName: paramFromURL.nickName,
-                pkId: paramFromURL.pkId
+                pkId: paramFromURL.pkId,
+                time:paramFromURL.time
             };
             postData(param);
         },
@@ -57,11 +63,30 @@ var common=require("common");
                 secondaryWxId: paramFromURL.secondaryWxId,
                 isAgree: 1,
                 nickName: paramFromURL.nickName,
-                pkId: paramFromURL.pkId
+                pkId: paramFromURL.pkId,
+                time:paramFromURL.time
             };
             postData(param);
         }
     };
 
-    pageManager.initPage(html, 'binding-apply', scope);
+    afterInitPage();
+
+    function afterInitPage() {
+        var param = {  time:paramFromURL.time
+        };
+        pageManager.ajaxManager({
+            //hostIndex: 2,
+            url: restAPI.bind.isExpired.url,
+            data: param,
+            type: 'post',
+            success: function (res) {
+                if (res.code != 0) {
+                    location.hash = 'invalid-page';
+                } else {
+                    pageManager.initPage(html, 'binding-apply', scope);
+                }
+            }
+        });
+    }
 

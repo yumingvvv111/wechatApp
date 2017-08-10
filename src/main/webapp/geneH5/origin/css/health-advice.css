@@ -1,0 +1,94 @@
+body{
+	background-color:#EEEEEE ;
+}
+.banner-box{ 
+	width: 100%;
+	position: relative;	
+}
+.banner-box .banner-word{
+	color: #FFFFFF;
+	width: 100%;
+	position: absolute;
+	top:25%;
+	text-align: center;
+}
+.section{
+	background: #FFFFFF;
+	width: 100%; 
+	margin-bottom: 10px;
+	padding: 20px 15px;
+}
+.section .title {
+	margin-bottom: 15px;
+}
+.section .title h3{
+	font-size: 18px;
+	color: #333333;
+	padding-left: 40px;
+	line-height: 30px;
+	background-image:url(../images/icon-01.png) ;
+	background-repeat: no-repeat;
+	background-size: 30px 250px;
+}
+h3.food-icon{
+	background-position:0 -30px;
+}
+h3.sports-icon{
+	background-position:0 -210px;
+}
+h3.smoking-icon{
+	background-position:0 -180px;
+}
+h3.drink-icon{
+	background-position:0 0;
+}
+h3.sleep-icon{
+	background-position:0 -150px;
+}
+h3.psychology-icon{
+	background-position:0 -120px;
+}
+h3.drug-icon{
+	background-position:0 -90px;
+}
+
+.section .advice-list p{ margin-bottom: 10px;}
+.section .advice-list ul{
+	list-style-type: disc;
+	padding-left: 30px;
+	margin-bottom: 10px;
+}
+.section .advice-list ul li{
+	margin: 10px 0;
+}
+.load-more{ padding:10px 15px; text-align: center;}
+.load-more a{
+	color: #1fa2ff;
+}
+.load-more em{ margin-left: 5px;}
+
+.section .advice-list .sports-table{
+	border-radius: 8px;
+	border: 1px solid #EEEEEE;
+	margin-bottom: 15px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px #EEEEEE ;
+}
+.sports-table table{
+	width: 100%;
+	border: 0;
+}
+.sports-table table th{
+	background: #00D29D;
+	padding: 15px 0;
+	width: 50%;
+	color: #FFFFFF;
+	font-weight: normal;
+}
+.sports-table table tbody tr{ border-bottom: 1px solid #EEEEEE;}
+.sports-table table tbody td{
+	width: 50%;
+	padding: 10px 5px;
+	text-align: center;
+	font-size: 14px;
+}

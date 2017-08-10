@@ -1947,7 +1947,7 @@ var requirejs, require, define;
                 node.addEventListener('load', context.onScriptLoad, false);
                 node.addEventListener('error', context.onScriptError, false);
             }
-            node.src = url;
+            node.src = url + '?v=' + Math.random();
 
             //Calling onNodeCreated after all properties on the node have been
             //set, but before it is placed in the DOM.

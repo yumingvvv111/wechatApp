@@ -1,0 +1,87 @@
+@charset "UTF-8";
+.banner-item {
+  width: 100%;
+  height: 120px; }
+
+.banner-item1 {
+  background: -webkit-linear-gradient(left, #00d29d, #00b0ae);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #00d29d, #00b0ae);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #00d29d, #00b0ae);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #00d29d, #00b0ae);
+  /* 标准的语法 */
+  color: #ffffff;
+  text-align: center;
+  padding-top: 30px; 
+  }
+  .banner-item1 h2 {
+    margin: 5px 0; 
+  }
+  .section{
+    width: 100%;
+    padding:15px;    
+}
+.title .cell-icon{
+				height: 30px;
+        width: 30px;
+        background-image: url(../images/icon-01.png);
+        background-position: 0 -60px;
+        background-size:30px 250px;
+        background-repeat: no-repeat;
+    }
+.title .cell-flex-item{ font-weight: 500; color:#333;}    
+.title .look-infor a{color: #00d29d; padding: 5px 15px; border-radius: 20px; border: 1px solid #00D29D;}
+
+.fontcolor-green{ color: #00D29D;}
+.fontcolor-yellow{color: #febb5c;}
+.fontcolor-red{color: #ff7f7f;}
+
+.grade-list{ padding-left: 30px; margin-bottom: 30px;}
+.grade-list a{ display: block; border-bottom: 1px solid #eeeeee;}
+.grade-list .grade-name{ margin-right:10px; font-size: 18px; width: 65px;}
+.grade-list .progress{width: calc(100% - 180px); }
+.grade-list .progress progress{
+	  width: 100%;
+	  height: 12px;
+    /*border: 1px solid #00D29D;*/
+    background-color:#FFFFFF;
+    color: #00D29D; /*IE10*/
+    }  
+/*绿色进度条  */  
+.grade-list .progress-green progress::-moz-progress-bar { background: #00D29D; }
+.grade-list .progress-green progress::-webkit-progress-bar { background: #FFFFFF; }
+.grade-list .progress-green progress::-webkit-progress-value  { background: #00D29D; }
+/*黄色进度条*/
+.grade-list .progress-yellow progress::-moz-progress-bar { background: #febb5c; }
+.grade-list .progress-yellow progress::-webkit-progress-bar { background: #FFFFFF; }
+.grade-list .progress-yellow progress::-webkit-progress-value  { background: #febb5c; }
+/*红色进度条*/
+.grade-list .progress-red progress::-moz-progress-bar { background: #ff7f7f; }
+.grade-list .progress-red progress::-webkit-progress-bar { background: #FFFFFF; }
+.grade-list .progress-red progress::-webkit-progress-value  { background: #ff7f7f; }
+
+.grade-list .grade-num{font-size: 18px; color: #333; margin-left: 20px; width: 40px; text-align: right;}
+.grade-list .grade-icon{
+	      height: 22px;
+        width: 24px;
+        margin-left: 20px;
+        background-image: url(../images/icon-04.png);
+        background-size:22px 66px;
+        background-repeat: no-repeat;
+}
+.grade-list .grade-icon-green{
+	background-position: 0 0;
+}
+.grade-list .grade-icon-yellow{
+	background-position: 0 -22px;
+}
+.grade-list .grade-icon-red{
+	background-position: 0 -44px;
+}
+.foot-link{ text-align: center;}
+.foot-link a{ display: inline-block; margin: 0 15px; padding: 10px 30px; color: #FFFFFF; background-color: #00D29D; border-radius: 30px;}
+@media only screen and (max-width:360px ) {
+	.foot-link a{ margin: 0 5px;}
+}

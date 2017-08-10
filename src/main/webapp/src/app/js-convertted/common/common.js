@@ -822,7 +822,7 @@
         getInfoFromURL: function (url) {
             var host, hash, paramObj = {}, paramStr = '', paramArr = [], paramObj = {}, match1, match2, match3;
             url = url || location.href;
-            match1 = /(((?:http|https):\/\/[^\/]+)(?:.*?)\/).*?(#?.*)$/.exec(url);
+            match1 = /(((?:http:\/\/|https:\/\/|file:\/\/\/)[^\/]+).*)\/.*?(#?.*)$/.exec(url);
             //临时增加的
             var path = match1[1];
             host = match1[2];
