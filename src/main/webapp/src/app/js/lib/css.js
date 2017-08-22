@@ -133,6 +133,7 @@ define(function () {
 
     // <link> load method
     var linkLoad = function (url, callback) {
+        url += '?v=' + parseInt(Math.random()*1000);
         var link = document.createElement('link');
         link.type = 'text/css';
         link.rel = 'stylesheet';

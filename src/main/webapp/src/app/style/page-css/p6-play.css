@@ -34,7 +34,9 @@
    }
 }
 .product-infor .product-hd p{ padding: 0 15px;}
-.product-infor .product-bd{ text-align: center; height: 36px;}
+.product-infor .product-bd{ text-align: center; height: 36px; padding:0 20px;}
+.product-infor .product-bd  img{ margin: 0 auto;}
+/*
 .product-infor .product-bd .shop-car{ width: 36px; height: 36px; display: inline-block; background: #009CFF; border-radius: 50%; margin-right: 10px; padding: 4px 0 0 4px; vertical-align: middle;}
 .product-infor .product-bd .shop-car img{ width: 28px;  }
-.product-infor .product-bd a{ color: #009CFF; font-size: 18px; font-weight: 500; display: inline-block; line-height: 36px;}
+.product-infor .product-bd a{ color: #009CFF; font-size: 18px; font-weight: 500; display: inline-block; line-height: 36px;}*/

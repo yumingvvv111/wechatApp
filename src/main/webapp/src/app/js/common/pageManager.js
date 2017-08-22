@@ -478,11 +478,11 @@ define(function (require) {
             $html.find('.page').on('animationend webkitAnimationEnd', function () {
                 $html.find('.page').removeClass('slideIn').addClass('js_show');
             });
+            self.$container.append($html);
             var titleContent = $html.find('[name = title]').val();
             common.changeTitle(titleContent);
             $(document).off("click", "#login");
             toastComponent.destroy();
-            self.$container.append($html);
             stackItem.dom = $html;
             callback && callback($html);
         },

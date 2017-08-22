@@ -29,12 +29,14 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'css!style/page-css/
         var minA = frontRange[0];
         //最大值
         var maxA = frontRange[1];
-        //一个数字平均旋转度数
-        var meanA = 180 / (maxA - minA);
         //具体数字
         var originalNum = parseFloat(value);
-        var num = (originalNum || 0) * meanA;
-        circleElement.find('.big-number').text(isNaN(originalNum) ? '--' : originalNum);
+        //获得数字旋转度数
+        var num = 180 * (originalNum - minA) / (maxA - minA);
+        circleElement.find('.big-number').text(isNaN(originalNum) ? '--' : value);
+        if (isNaN(originalNum)) {
+            num = 0
+        }
         if (num <= 180) {
             animateIt(circleElement, num);
         } else {
@@ -42,20 +44,10 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'css!style/page-css/
         }
         function animateIt(circleElement, num) {
             var $element = circleElement.find('.out-cricle');
-            var n = 0;
-
-            function step() {
-                n += 2;
-                if (n > 180) {
-                    n = 180;
-                }
-                $element.css('transform', "rotate(" + n + "deg)");
-                if (n < num) {
-                    requestAnimationFrame(step);
-                }
-            }
-
-            requestAnimationFrame(step);
+            $element.attr({style: "transform: rotate(0deg)"});
+            setTimeout(function () {
+                $element.attr({style: "transform: rotate(" + num + "deg); transition: all 2s ease"});
+            }, 500);
         }
 
         //判断背景环颜色
@@ -70,7 +62,8 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'css!style/page-css/
                 var colorName = '';
 
                 for (var i = 0, j = i + 1; i < stages.length - 1; i++, j = i + 1) {
-                    if (originalNum > stages[i] && originalNum <= stages[j]) {
+                    //chenhui添加修改originalNum > stages[i]
+                    if (originalNum >= stages[i] && originalNum <= stages[j]) {
                         circleElement.find('.small-number').text(stageName[i]);
                         if (originalNum <= colorStage[0]) {
                             colorName = 'dial-box-blue';
@@ -88,22 +81,73 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'css!style/page-css/
                 circleElement.addClass(colorName);
                 return;
             }
-            if (originalNum <= backRange[0]) {
+            function getText(index) {
+                var levelMap = [
+                    ['安全', '优'],
+                    ['轻度', '中等'],
+                    ['重度', '严重']
+                ];
+                return (type === 'ch2' || type === 'tvoc' || type === 'pollutionLevel') ? levelMap[index][0] : levelMap[index][1];
+            }
+
+            if (originalNum < backRange[0]) {
                 circleElement.addClass('dial-box-blue');
-                circleElement.find('.small-number').text((type === 'ch2' || type === 'tvoc')? '安全' : '优');
+                circleElement.find('.small-number').text(getText(0));
                 renderWarningMessage(type, 0);
-            } else if (backRange[0] < originalNum && originalNum <= backRange[1]) {
+            } else if (backRange[0] <= originalNum && originalNum < backRange[1]) {
                 circleElement.addClass('dial-box-yellow');
-                circleElement.find('.small-number').text((type === 'ch2' || type === 'tvoc')? '轻度' : '中等');
+                circleElement.find('.small-number').text(getText(1));
                 renderWarningMessage(type, 1);
             } else {
                 circleElement.addClass('dial-box-red');
-                circleElement.find('.small-number').text((type === 'ch2' || type === 'tvoc')? '重度' : '严重');
+                circleElement.find('.small-number').text(getText(2));
                 renderWarningMessage(type, 2);
             }
 
             function renderWarningMessage(type, level) {
-
+                var textMap = {
+                    ch2: {
+                        name: '甲醛',
+                        standard: '0.1mg/m³',
+                        solution: '净化措施或通风换气',
+                        justDoIt: '通风换气'
+                    },
+                    tvoc: {
+                        name: '化学污染物',
+                        standard: '0.6mg/m³',
+                        solution: '净化措施或通风换气',
+                        justDoIt: '通风换气'
+                    },
+                    pm25: {
+                        name: 'PM2.5',
+                        standard: '75μg/m³',
+                        solution: '净化措施',
+                        justDoIt: '净化措施'
+                    }
+                };
+                var textMapTemplates = [
+                    '{{name}}国家标准为{{standard}}，您所处的环境安全。请继续保持哦！',
+                    '您所处的环境{{name}}超标，请及时采取{{solution}}。说真的，我都替你着急！',
+                    '您的您所处的环境{{name}}超标严重，请立刻{{justDoIt}}。赶紧的吧！急死我了！！'
+                ];
+                for (var name in textMap) {
+                    var arr = [];
+                    var data = textMap[name];
+                    textMapTemplates.forEach(function (v2) {
+                        var resultText = v2.replace(/\{\{([^\{]+)\}\}/g, function(m0, m1){
+                            return data[m1];
+                        });
+                        arr.push(resultText);
+                    });
+                    textMap[name] = arr;
+                }
+                var className = ['good-message', 'remind-message', 'Warning-message'][level];
+                var text = textMap[type];
+                if (text) {
+                    text = text[level];
+                    var htmlStr = '<p class="' + className + '">' + text + '</p>';
+                    $('.page-p6-data').find('.' + type + '-message').html(htmlStr);
+                }
             }
         }
     }

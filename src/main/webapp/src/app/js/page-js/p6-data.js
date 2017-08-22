@@ -49,7 +49,9 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
     var scope = {
         equipmentName: '',
         onClickEquipmentName: function () {
-            $('#changeNameWrapper').fadeIn(200);
+            if (paramFromURL.isPrimary == 0) {
+                $('#changeNameWrapper').fadeIn(200);
+            }
         },
         onClickShare: function () {
             $('#share').fadeIn(200);
@@ -448,7 +450,7 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
                         renderCircleBoard(v.selector, v.frontRange, v.backRange, v.value, v.type);
                     });
                     if (paramFromURL.isPrimary != 0) {
-                        $('.page-p6-data #equipmentName').hide();
+                        // $('.page-p6-data #equipmentName').hide();
                         $('.page-p6-data #p6DataShutdown').hide();
                         $('.page-p6-data #p6DataSheScreenOff').hide();
                         $('.page-p6-data #p6DataSheScreen').hide();

@@ -2065,11 +2065,19 @@ var requirejs, require, define;
      */
     define = function (name, deps, callback) {
         var node, context;
-
         //Allow for anonymous modules
         if (typeof name !== 'string') {
             //Adjust args appropriately
             callback = deps;
+            if(name instanceof Array){
+                name = name.map(function(v){
+                    if(/(?:html|text)!/.test(v)){
+                        return v += '?v=' + parseInt(Math.random()*1000);
+                    }else{
+                        return v;
+                    }
+                });
+            }
             deps = name;
             name = null;
         }
