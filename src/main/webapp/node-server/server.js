@@ -17,6 +17,8 @@ app.engine('html', require('ejs').renderFile);
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-control-expose-headers", "X-Total-Count");
+    res.header("X-Total-Count", "10");
     next();
 });
 
