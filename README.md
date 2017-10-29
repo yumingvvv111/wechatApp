@@ -205,7 +205,7 @@ var defaultData = JSON.parse('{"message":"Success","data":{"placeTime":[],"place
 
 __示例__
 
-```
+```js
 var dialogCfg = {
     type: 'append',//append是添加到容器中，html是替换容器里的内容
     viewModel: {//视图层对应的数据模型
@@ -231,7 +231,7 @@ var dialogCfg = {
 
 __示例__
 
-```
+```js
 var selectCfg = {
     type: 'append',
     viewModel: {
@@ -258,7 +258,7 @@ var selectCfg = {
 * 下拉控件
 已经做了一个兼容封装，使用方式如下：
 
-```
+```html
 <div class="weui-cell weui-cell_select" data-component='{"name":"yy-select","disabled":"disabled"}'>
                     <div class="weui-cell__hd"><label class="weui-label">检测项目</label></div>
                     <div class="weui-cell__bd weui-cell-mask" style="position:relative;">
@@ -278,7 +278,7 @@ var selectCfg = {
 * 日历
 原来是使用日历插件，但是ios里的风格跟本身系统自带风格不协调，所以改为html5的实现方法，具体代码：
 
-```
+```html
 <input type="date" class="weui-select weui-select-date" name="birthday"/>
 
 ```
@@ -292,7 +292,7 @@ var selectCfg = {
 * 1、每个页面都有一个define定义，然后依次加载css，html和js模块
 * 2、回调函数内部需要初始化页面
 
-```
+```js
 define(['css!style/p2-style',  'html!pages/air-cat/air-good.html', 'restAPI', 'pageManager'], function (c1, html, restAPI, pageManager) {
     pageManager.initPage(html, 'air-good');
     });
