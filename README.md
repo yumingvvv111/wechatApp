@@ -1,7 +1,9 @@
-*微信webapp*
+# YY前端框架
+[TOC]
 
-基于weui打造的微信前端框架,适合公众号、微信网页应用。
-技术方面为前后端纯分离模式, 前端为MVVM模式架构。后端提供restfulAPI服务, 后端同时保留两种架构nodejs + mongoDB和java的springMVC + hibernate + mySql。
+## 概述
+基于weui打造的前端框架,适合公众号、单页面应用。
+前后端纯分离模式, 前端为MVVM模式架构。后端提供restfulAPI服务, 后端同时保留两种架构nodejs + mongoDB和java的springMVC + hibernate + mySql。
 为了支持类似fis的`__inline`和`__sprite`语法（base64和雪碧图），对依赖包`gulp-css-base64`和`gulp-css-spriter`都做了修改，暂时保留在node_modules中。不必再下载这两个包。
 
 **起Node服务的步骤:**
@@ -39,10 +41,6 @@ devtool: 'source-map' 改为 '#source-map'， 兼容新版Chrome规则。
 
 然后启动本地mysql再启动tomcat
 
-# 微信公众号前端框架文档
-[TOC]
-## 一 概述
-此框架是基于微信官方出的UI框架－[weui（https://weui.io/）](https://weui.io/)的二次开发。改成ajax调取页面，添加模板函数等。
 ## 二 常用接口
 ### 数据交互 pageManager.ajaxManager 
 __说明__
