@@ -1,5 +1,9 @@
-define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board/p6-data.html', 'restAPI', 'pageManager', 'common'], function (c1, c2, html, restAPI, pageManager, common) {
-
+define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board/p6-data.html'], function (c1, c2, html) {
+    var restAPI = require('restAPI');
+    var pageManager = require('pageManager');
+    debugger;
+    var pageManager = require('equimentRest/src'+ '' +'/app/js/air-good.js');
+    var common = require('pageManager');
     var paramFromURL = common.utils.getInfoFromURL().param;
 
     var chartJsonData = {};
@@ -202,7 +206,7 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
             //     }
             // },
             grid: {
-                left: '40',
+                left: '45',
                 right: '2%',
                 bottom: '60',
                 containLabel: false
@@ -211,7 +215,7 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
                 type: 'category',
                 data: data.data.x,
                 axisTick: {
-                    alignWithLabel: true,
+                    alignWithLabel: true
                 },
                 axisLine: { //坐标轴边线颜色
                     lineStyle: {
@@ -260,6 +264,7 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
         //获得数字旋转度数
         var num = 180 * (originalNum - minA) / (maxA - minA);
         circleElement.find('.big-number').text(isNaN(originalNum) ? '--' : value);
+        circleElement.find('.small-number').text(isNaN(originalNum) ? '--' : value);
         if (isNaN(originalNum)) {
             num = 0
         }
@@ -270,15 +275,20 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
         }
         function animateIt(circleElement, num) {
             var $element = circleElement.find('.out-cricle');
+            var star = circleElement.closest('.dial-box').find('.star');
+            star.attr({style: "transform: rotate(0deg)"});
             $element.attr({style: "transform: rotate(0deg)"});
             setTimeout(function () {
+                star.attr({style: "transform: rotate(" + num + "deg); opacity:1; transition: all 2s ease"});
                 $element.attr({style: "transform: rotate(" + num + "deg); transition: all 2s ease"});
             }, 500);
         }
 
         //判断背景环颜色
         if (isNaN(originalNum)) {
+            circleElement.attr('class', circleElement.attr('class').replace(/\sdial-box-(?:red|blue|white|yellow)/g, ''));
             circleElement.addClass('dial-box-white');
+            circleElement.closest('.dial-box').find('.star').attr('class','star').addClass('star-white');
         } else {
             //hack pm2.5
             if (selector === '.dial-box1') {
@@ -286,25 +296,30 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
                 var stageName = ['优', '良', '轻度污染', '中度污染', '重度污染', '严重污染'];
                 var colorStage = [75, 150];
                 var colorName = '';
-
+                var starColor = 'white';
                 for (var i = 0, j = i + 1; i < stages.length - 1; i++, j = i + 1) {
                     //chenhui添加修改originalNum > stages[i]
                     if (originalNum >= stages[i] && originalNum <= stages[j]) {
                         circleElement.find('.small-number').text(stageName[i]);
                         if (originalNum <= colorStage[0]) {
                             colorName = 'dial-box-blue';
+                            starColor = 'star-blue';
                             renderWarningMessage(type, 0);
                         } else if (originalNum > colorStage[0] && originalNum <= colorStage[1]) {
                             colorName = 'dial-box-yellow';
+                            starColor = 'star-yellow';
                             renderWarningMessage(type, 1);
                         } else {
                             colorName = 'dial-box-red';
+                            starColor = 'star-red';
                             renderWarningMessage(type, 2);
                         }
                         break;
                     }
                 }
+                circleElement.attr('class', circleElement.attr('class').replace(/\sdial-box-(?:red|blue|white|yellow)/g, ''));
                 circleElement.addClass(colorName);
+                circleElement.closest('.dial-box').find('.star').attr('class','star').addClass(starColor);
                 return;
             }
             function getText(index) {
@@ -315,17 +330,22 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'html!pages/p6-board
                 ];
                 return (type === 'ch2' || type === 'tvoc' || type === 'pollutionLevel') ? levelMap[index][0] : levelMap[index][1];
             }
-
             if (originalNum < backRange[0]) {
+                circleElement.attr('class', circleElement.attr('class').replace(/\sdial-box-(?:red|blue|white|yellow)/g, ''));
                 circleElement.addClass('dial-box-blue');
+                circleElement.closest('.dial-box').find('.star').attr('class','star').addClass('star-blue');
                 circleElement.find('.small-number').text(getText(0));
                 renderWarningMessage(type, 0);
             } else if (backRange[0] <= originalNum && originalNum < backRange[1]) {
+                circleElement.attr('class', circleElement.attr('class').replace(/\sdial-box-(?:red|blue|white|yellow)/g, ''));
                 circleElement.addClass('dial-box-yellow');
+                circleElement.closest('.dial-box').find('.star').attr('class','star').addClass('star-yellow');
                 circleElement.find('.small-number').text(getText(1));
                 renderWarningMessage(type, 1);
             } else {
+                circleElement.attr('class', circleElement.attr('class').replace(/\sdial-box-(?:red|blue|white|yellow)/g, ''));
                 circleElement.addClass('dial-box-red');
+                circleElement.closest('.dial-box').find('.star').attr('class','star').addClass('star-red');
                 circleElement.find('.small-number').text(getText(2));
                 renderWarningMessage(type, 2);
             }

@@ -16,7 +16,7 @@ define(['css!style/p2-style', 'css!style/page-css/p6-data', 'css!style/page-css/
             var data = jsonData;
             var circleBoardModel = data.circleBoardModel;
             circleBoardModel.forEach(function (v) {
-                renderCircleBoard(v.selector, v.frontRange, v.backRange, v.value);
+                renderCircleBoard(v.selector, v.frontRange, v.backRange, v.value, v.type);
             });
             renderTime(data.uploadTime, '.page-p6-play .link-info');
         }

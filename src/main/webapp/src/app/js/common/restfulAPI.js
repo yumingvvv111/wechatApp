@@ -2,7 +2,8 @@ define(function (require) {
     var module = {};
     var common = require('common');
     var hostIndex = -1;
-    var hostList = ['192.168.1.110:8080', 'localhost:8080', '192.168.1.104:8080', 'weixin.test.bioeh.com', 'weixin.test.bioeh.com', 'weixin.test.bioeh.com', 'weixin.test.bioeh.com', 'weixin.test.bioeh.com'];
+    var params = common.utils.getInfoFromURL();
+    var hostList = [params.host.replace(/^http:\/\/|\/$/g,''), '192.168.1.110:8080', 'localhost:8080', '192.168.1.104:8080', 'weixin.test.bioeh.com', 'weixin.test.bioeh.com', 'weixin.test.bioeh.com', 'weixin.test.bioeh.com', 'weixin.test.bioeh.com'];
 
     function switchHost(index) {
         return hostList[index];

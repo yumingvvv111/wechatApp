@@ -14,7 +14,7 @@ router.get('/react/*', function(req, res, next){
     var reqBody = req.body;
     var url = req.originalUrl;
     if(url.indexOf('/list') >= 0){
-        res.json({posts:[
+        res.json([
             {
                 id: 1,
                 title: 'Accusantium qui nihil voluptatum quia voluptas maxime ab similique',
@@ -252,7 +252,7 @@ router.get('/react/*', function(req, res, next){
                 backlinks: [],
                 notifications: [],
             },
-        ]});
+        ]);
         return false;
     }
 

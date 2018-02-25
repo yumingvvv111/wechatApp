@@ -1438,11 +1438,30 @@ var requirejs, require, define;
                         id = map.id;
 
                         if (!hasProp(defined, id)) {
-                            return onError(makeError('notloaded', 'Module name "' +
-                                        id +
-                                        '" has not been loaded yet for context: ' +
-                                        contextName +
-                                        (relMap ? '' : '. Use require([])')));
+                            var _n = 30000;
+                            var result = {};
+                            $.ajax({
+                                url: 'http://localhost:8080/equimentRest/src/app.js',
+                                success: function(res){
+                                    defined[id] = {code: 1, res};
+                                },
+                                error: function(ex){
+                                    defined[id] = {code: 0, res};
+                                }
+                            });
+                            while(_n){
+                                if(defined[id]){
+                                    if(defined[id].code === 0){
+                                        result = onError(makeError('notloaded', 'Module name "' +
+                                            id +
+                                            '" has not been loaded yet for context: ' +
+                                            contextName +
+                                            (relMap ? '' : '. Use require([])')));;
+                                    }
+                                    break;
+                                }
+                            }
+                            return result;
                         }
                         return defined[id];
                     }
