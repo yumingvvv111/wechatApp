@@ -179,7 +179,7 @@ var defaultData = JSON.parse('{"message":"Success","data":{"placeTime":[],"place
               placeTime: defaultData.data.placeTime,
               onChangeDate: function (event, data, index) {},
             },
-            //afterRenderPage方法一般是用来页面渲染之后做一些事，替代jquery的$(function(){......})
+            //afterRenderPage方法一般是用来页面渲染之后做一些事，替代jquery的$(function(){......})。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
           afterRenderPage: function () {
             pageManager.ajaxManager({
                     url: API.appoint.getAppointMentTimeByDate.url,
